@@ -1,33 +1,46 @@
 package com.app.entity;
 
-import java.util.UUID;
+import com.app.entity.user.Owner;
 
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
 public class House {
-    private String id = UUID.randomUUID().toString();
-    private String ownerId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "owner_id")
+    @ManyToOne
+    private Owner owner;
+
+    @Column(name = "num_rooms")
     private int numOfRooms;
+
+    @Column
     private String locality;
 
     public House() {
-        numOfRooms = 1;
-        ownerId = null;
-        locality = null;
+        setNumOfRooms(1);
+        setOwner(null);
+        setLocality(null);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     public int getNumOfRooms() {
