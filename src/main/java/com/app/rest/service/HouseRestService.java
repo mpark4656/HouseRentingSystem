@@ -15,31 +15,31 @@ public class HouseRestService {
     @Inject
     HouseRepository houseRepository;
 
-    @Path("create") // api/v1/house/create
+    @Path("create") // POST api/v1/house/create
     @POST
     public Response createHouse(House house) {
         return Response.ok(houseRepository.createHouse(house)).build();
     }
 
-    @Path("update") // api/v1/house/update
-    @POST
+    @Path("update") // PUT api/v1/house/update
+    @PUT
     public Response updateHouse(House house) {
         return Response.ok(houseRepository.updateHouse(house)).build();
     }
 
-    @Path("delete") // api/v1/house/delete
-    @POST
+    @Path("delete") // DELETE api/v1/house/delete
+    @DELETE
     public Response deleteHouse(House house) {
         return Response.ok(houseRepository.deleteHouse(house)).build();
     }
 
-    @Path("{id}") // api/v1/house/{id}
+    @Path("{id}") // GET api/v1/house/{id}
     @GET
     public House getHouse(@PathParam("id") int id) {
         return houseRepository.findHouseById(id);
     }
 
-    @Path("list") // api/v1/house/list
+    @Path("list") // GET api/v1/house/list
     @GET
     public List<House> getHouses() {
         return houseRepository.getAllHouses();

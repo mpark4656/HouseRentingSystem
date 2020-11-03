@@ -2,6 +2,9 @@ package com.app.entities;
 
 import com.app.entities.user.Owner;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "houses")
 public class House {
@@ -13,10 +16,13 @@ public class House {
     @ManyToOne
     private Owner owner;
 
-    @Column(name = "num_rooms")
+    @Column(name = "num_rooms", nullable = false)
+    @Min(0)
     private int numOfRooms;
 
-    @Column
+    @Column(nullable = false)
+    @NotBlank(message = "Locality must be set")
+    @NotNull(message = "Locality must not be null")
     private String locality;
 
     public House() {
@@ -52,7 +58,7 @@ public class House {
     }
 
     public void setNumOfRooms(int numOfRooms) {
-        this.numOfRooms = numOfRooms >= 0 ? numOfRooms : 1;
+        this.numOfRooms = numOfRooms;
     }
 
     public String getLocality() {

@@ -36,4 +36,11 @@ requirements and get the results accordingly.
 * Bootstrap
 
 ## Usage
-java -jar [payara-micro-5.2020.5.jar] --deploy [HouseRentingSystem.war] --port 8080
+Replace values inside square brackets([ ]) with actual values. Don't include square brackets.
+
+java -jar [payara-micro-5.2020.5.jar] --deploy [HouseRentingSystem.war] --port [8080]
+
+To create an uber jar, execute the command below.
+
+java -jar [payara-micro-5.2020.5.jar] --deploy [HouseRentingSystem.war] --port [8080]
+-- outputUberJar [HouseRentingSystemUber.jar]
