@@ -5,7 +5,7 @@ import com.app.entity.user.Owner;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "rentals")
 public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,6 +34,22 @@ public class Rental {
     @PrePersist
     void init() {
         setDateAdded(LocalDateTime.now());
+    }
+
+    public Rental() {
+        setRent(0);
+        setDescription(null);
+        setHouse(null);
+        setOwner(null);
+        setCustomer(null);
+    }
+
+    public Rental(double rent, String description, House house, Owner owner) {
+        setRent(rent);
+        setDescription(description);
+        setHouse(house);
+        setOwner(owner);
+        setCustomer(null);
     }
 
     public int getId() {

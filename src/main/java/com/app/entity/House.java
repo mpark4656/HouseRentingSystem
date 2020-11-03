@@ -1,11 +1,9 @@
 package com.app.entity;
 
 import com.app.entity.user.Owner;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "houses")
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +23,12 @@ public class House {
         setNumOfRooms(1);
         setOwner(null);
         setLocality(null);
+    }
+
+    public House(int numOfRooms, Owner owner, String locality) {
+        setNumOfRooms(numOfRooms);
+        setOwner(owner);
+        setLocality(locality);
     }
 
     public int getId() {
@@ -48,7 +52,7 @@ public class House {
     }
 
     public void setNumOfRooms(int numOfRooms) {
-        this.numOfRooms = numOfRooms;
+        this.numOfRooms = numOfRooms >= 0 ? numOfRooms : 1;
     }
 
     public String getLocality() {

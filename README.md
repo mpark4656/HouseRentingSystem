@@ -1,5 +1,7 @@
 # Online House Renting System
-## Description
+## Project Description
+This project idea is from
+https://data-flair.training/blogs/java-project-ideas/.
 House rental portal is a web-based java project
 where house owners, clients, customers can exchange
 information effectively and inexpensively.
@@ -14,3 +16,13 @@ including the number of rooms, locality, rent. Admin manages all
 the users of the system. Customer is the one who is looking for
 a rental house. He can search the house according to the
 requirements and get the results accordingly.
+
+## Built With
+* Maven: Build Tool
+* Intellij NetBrain Community Edition: IDE
+* Java Persistence API
+* Java Context and Dependency Injection
+* HTML
+* CSS
+* Javascript
+* Bootstrap
