@@ -20,9 +20,20 @@ requirements and get the results accordingly.
 ## Built With
 * Maven: Build Tool
 * Intellij NetBrain Community Edition: IDE
+* MySQL v8.0: Database
+* Payara Micro: Application Server
+* Insomnia Core: Testing REST Web Service
+
+## Libraries, Frameworks, and Languages
 * Java Persistence API
 * Java Context and Dependency Injection
+* JAX-RS
+* JSP
+* Servlets
 * HTML
 * CSS
 * Javascript
 * Bootstrap
+
+## Usage
+java -jar [payara-micro-5.2020.5.jar] --deploy [HouseRentingSystem.war] --port 8080

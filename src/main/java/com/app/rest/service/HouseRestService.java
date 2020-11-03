@@ -1,7 +1,7 @@
-package com.app.rest;
+package com.app.rest.service;
 
-import com.app.entity.House;
-import com.app.service.HouseService;
+import com.app.entities.House;
+import com.app.repositories.HouseRepository;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -11,31 +11,37 @@ import javax.ws.rs.core.Response;
 @Path("house")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class HouseRest {
+public class HouseRestService {
     @Inject
-    HouseService houseService;
+    HouseRepository houseRepository;
 
     @Path("create") // api/v1/house/create
     @POST
     public Response createHouse(House house) {
-        return Response.ok(houseService.createHouse(house)).build();
+        return Response.ok(houseRepository.createHouse(house)).build();
     }
 
     @Path("update") // api/v1/house/update
     @POST
     public Response updateHouse(House house) {
-        return Response.ok(houseService.updateHouse(house)).build();
+        return Response.ok(houseRepository.updateHouse(house)).build();
+    }
+
+    @Path("delete") // api/v1/house/delete
+    @POST
+    public Response deleteHouse(House house) {
+        return Response.ok(houseRepository.deleteHouse(house)).build();
     }
 
     @Path("{id}") // api/v1/house/{id}
     @GET
     public House getHouse(@PathParam("id") int id) {
-        return houseService.findHouseById(id);
+        return houseRepository.findHouseById(id);
     }
 
     @Path("list") // api/v1/house/list
     @GET
     public List<House> getHouses() {
-        return houseService.getAllHouses();
+        return houseRepository.getAllHouses();
     }
 }

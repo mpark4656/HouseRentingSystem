@@ -1,6 +1,6 @@
-package com.app.entity;
+package com.app.entities;
 
-import com.app.entity.user.Owner;
+import com.app.entities.user.Owner;
 import javax.persistence.*;
 
 @Entity(name = "houses")
@@ -9,7 +9,7 @@ public class House {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "owner_id")
+    @JoinColumn(name = "owner_id")
     @ManyToOne
     private Owner owner;
 
@@ -61,5 +61,20 @@ public class House {
 
     public void setLocality(String locality) {
         this.locality = locality;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+        if(obj == this) return true;
+        if(!(obj instanceof House)) return false;
+
+        House houseObj = (House) obj;
+        return houseObj.id == this.id;
     }
 }

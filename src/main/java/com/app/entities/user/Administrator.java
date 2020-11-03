@@ -1,6 +1,6 @@
-package com.app.entity.user;
+package com.app.entities.user;
 
-import com.app.entity.User;
+import com.app.entities.User;
 import javax.persistence.Entity;
 
 @Entity

@@ -1,7 +1,7 @@
-package com.app.entity;
+package com.app.entities;
 
-import com.app.entity.user.Customer;
-import com.app.entity.user.Owner;
+import com.app.entities.user.Customer;
+import com.app.entities.user.Owner;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -21,14 +21,14 @@ public class Rental {
     private String description;
 
     @OneToOne
-    @Column(name = "house_id", nullable = false)
+    @JoinColumn(name = "house_id", nullable = false)
     private House house;
 
     @ManyToOne
-    @Column(name = "owner_id", nullable = false)
+    @JoinColumn(name = "owner_id", nullable = false)
     private Owner owner;
 
-    @Column(name = "customer_id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @PrePersist
