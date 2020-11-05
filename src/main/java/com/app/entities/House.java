@@ -5,15 +5,16 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 
 @Entity(name = "houses")
+@Table(name = "houses")
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @JoinColumn(name = "owner_id")
-    @ManyToOne
+    @JoinColumn(name = "owner_id", nullable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Owner owner;
-    
+
     @Min(0)
     @Column(name = "num_rooms", nullable = false)
     private int numOfRooms;

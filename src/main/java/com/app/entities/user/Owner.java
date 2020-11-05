@@ -2,10 +2,11 @@ package com.app.entities.user;
 
 import com.app.entities.User;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "owners")
+@Table(name = "owners")
 public class Owner extends User {
-
 
     public Owner() {
         super();

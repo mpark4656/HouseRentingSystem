@@ -8,13 +8,14 @@ import javax.validation.constraints.Min;
 import java.time.LocalDateTime;
 
 @Entity(name = "rentals")
+@Table(name = "rentals")
 public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "date_added", nullable = false)
-    @JsonbDateFormat("yyyy-MM-dd HH24:MI:SS")
+    @JsonbDateFormat("yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateAdded;
 
     @Column(nullable = false)
@@ -24,13 +25,9 @@ public class Rental {
     @Column
     private String description;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "house_id", nullable = false)
     private House house;
-
-    @ManyToOne
-    @JoinColumn(name = "owner_id", nullable = false)
-    private Owner owner;
 
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -44,7 +41,6 @@ public class Rental {
         setRent(0);
         setDescription(null);
         setHouse(null);
-        setOwner(null);
         setCustomer(null);
     }
 
@@ -52,7 +48,6 @@ public class Rental {
         setRent(rent);
         setDescription(description);
         setHouse(house);
-        setOwner(owner);
         setCustomer(null);
     }
 
@@ -94,14 +89,6 @@ public class Rental {
 
     public void setHouse(House house) {
         this.house = house;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
     }
 
     public Customer getCustomer() {
