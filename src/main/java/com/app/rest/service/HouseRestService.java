@@ -33,6 +33,12 @@ public class HouseRestService {
         return Response.ok(houseRepository.deleteHouse(house)).build();
     }
 
+    @Path("delete/{id}") // DELETE api/v1/house/delete/{id}
+    @DELETE
+    public Response deleteHouseById(@PathParam("id") int id) {
+        return Response.ok(houseRepository.deleteHouseById(id)).build();
+    }
+
     @Path("{id}") // GET api/v1/house/{id}
     @GET
     public House getHouse(@PathParam("id") int id) {

@@ -2,11 +2,9 @@ package com.app.entities;
 
 import com.app.entities.user.Customer;
 import com.app.entities.user.Owner;
-
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity(name = "rentals")
@@ -16,8 +14,7 @@ public class Rental {
     private int id;
 
     @Column(name = "date_added", nullable = false)
-    @NotNull(message = "Date Added must not be null")
-    @JsonbDateFormat(value = "yyyy-MM-dd HH24:MI:SS")
+    @JsonbDateFormat("yyyy-MM-dd HH24:MI:SS")
     private LocalDateTime dateAdded;
 
     @Column(nullable = false)
@@ -29,12 +26,10 @@ public class Rental {
 
     @OneToOne
     @JoinColumn(name = "house_id", nullable = false)
-    @NotNull(message = "House object must not be null")
     private House house;
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
-    @NotNull(message = "Owner object must not be null")
     private Owner owner;
 
     @JoinColumn(name = "customer_id")

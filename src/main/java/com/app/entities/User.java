@@ -1,8 +1,6 @@
 package com.app.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 public abstract class User {
@@ -11,23 +9,15 @@ public abstract class User {
     private int id;
 
     @Column(nullable = false)
-    @NotNull(message = "Username must not be null")
-    @NotBlank(message = "Username must not be blank")
     private String username;
 
     @Column(nullable = false)
-    @NotNull(message = "Password must not be null")
-    @NotBlank(message = "Password must not be blank")
     private String password;
 
     @Column(name = "fname", nullable = false)
-    @NotNull(message = "First name must not be null")
-    @NotBlank(message = "First name must not be blank")
     private String firstName;
 
     @Column(name = "lname", nullable = false)
-    @NotNull(message = "Last name must not be null")
-    @NotBlank(message = "Last name must not be blank")
     private String lastName;
 
     @Column(name= "email")

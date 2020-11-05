@@ -1,18 +1,9 @@
 package com.app.repositories;
 
 import com.app.entities.House;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
-public class HouseRepository {
-
-    @PersistenceContext
-    private EntityManager entityManager;
-
+public class HouseRepository extends Repository {
     public House createHouse(House house) {
         entityManager.persist(house);
         return house;
@@ -26,6 +17,10 @@ public class HouseRepository {
     public House deleteHouse(House house) {
         entityManager.remove(house);
         return house;
+    }
+
+    public House deleteHouseById(int id) {
+        return deleteHouse(findHouseById(id));
     }
 
     public House findHouseById(int id) {

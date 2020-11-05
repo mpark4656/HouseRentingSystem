@@ -3,8 +3,6 @@ package com.app.entities;
 import com.app.entities.user.Owner;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity(name = "houses")
 public class House {
@@ -15,14 +13,12 @@ public class House {
     @JoinColumn(name = "owner_id")
     @ManyToOne
     private Owner owner;
-
-    @Column(name = "num_rooms", nullable = false)
+    
     @Min(0)
+    @Column(name = "num_rooms", nullable = false)
     private int numOfRooms;
 
     @Column(nullable = false)
-    @NotBlank(message = "Locality must be set")
-    @NotNull(message = "Locality must not be null")
     private String locality;
 
     public House() {

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 @Entity
 public class Owner extends User {
 
+
     public Owner() {
         super();
     }
