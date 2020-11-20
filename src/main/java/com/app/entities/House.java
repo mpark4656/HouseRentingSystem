@@ -12,7 +12,7 @@ public class House {
     private int id;
 
     @JoinColumn(name = "owner_id", nullable = false)
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Owner owner;
 
     @Min(0)
