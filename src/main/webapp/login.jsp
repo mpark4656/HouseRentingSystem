@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="templates/head.html">
+<jsp:include page="templates/head.jsp">
     <jsp:param name="title" value="House Rental System" />
 </jsp:include>
 <body>

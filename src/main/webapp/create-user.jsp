@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="templates/head.html">
+<jsp:include page="templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
 </jsp:include>
 <body>
