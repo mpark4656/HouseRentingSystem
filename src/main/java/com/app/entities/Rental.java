@@ -1,7 +1,5 @@
 package com.app.entities;
 
-import com.app.entities.user.Customer;
-import com.app.entities.user.Owner;
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -30,7 +28,7 @@ public class Rental {
     private House house;
 
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private User customer;
 
     @PrePersist
     void init() {
@@ -44,7 +42,7 @@ public class Rental {
         setCustomer(null);
     }
 
-    public Rental(double rent, String description, House house, Owner owner) {
+    public Rental(double rent, String description, House house) {
         setRent(rent);
         setDescription(description);
         setHouse(house);
@@ -91,11 +89,11 @@ public class Rental {
         this.house = house;
     }
 
-    public Customer getCustomer() {
+    public User getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(User customer) {
         this.customer = customer;
     }
 }

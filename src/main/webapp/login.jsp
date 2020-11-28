@@ -9,14 +9,14 @@
             <h1>House Rental System</h1>
         </div>
         <div class="row justify-content-center">
-            <form action="login.jsp">
+            <form action="j_security_check" method="post">
                 <div class="form-group">
                     <label for="input-username">Username:</label>
-                    <input type="text" id="input-username" name="username" class="form-control" required />
+                    <input type="text" id="input-username" name="j_username" class="form-control" required />
                 </div>
                 <div class="form-group">
                     <label for="input-password">Password:</label>
-                    <input type="password" id="input-password" name="password" class="form-control" required>
+                    <input type="password" id="input-password" name="j_password" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <p>Login As</p>

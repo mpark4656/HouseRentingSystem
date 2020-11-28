@@ -1,9 +1,11 @@
 package com.app.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@MappedSuperclass
-public abstract class User {
+@Entity(name = "users")
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -13,6 +15,13 @@ public abstract class User {
 
     @Column(nullable = false)
     private String password;
+
+    @ElementCollection(targetClass = Role.class)
+    @CollectionTable(name="roles", joinColumns = @JoinColumn(name="user_id"))
+    @Column(nullable = false)
+    @OneToMany
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
 
     @Column(name = "fname", nullable = false)
     private String firstName;
@@ -31,16 +40,24 @@ public abstract class User {
         setEmailAddress(null);
     }
 
-    public User(String username, String password, String firstName, String lastName) {
+    public User(
+            String username, String password, Set<Role> roles,
+            String firstName, String lastName
+    ) {
         setUsername(username);
         setPassword(password);
+        setRole(roles);
         setFirstName(firstName);
         setLastName(lastName);
     }
 
-    public User(String username, String password, String firstName, String lastName, String emailAddress) {
+    public User(
+            String username, String password, Set<Role> role,
+            String firstName, String lastName, String emailAddress
+    ) {
         setUsername(username);
         setPassword(password);
+        setRole(role);
         setFirstName(firstName);
         setLastName(lastName);
         setEmailAddress(emailAddress);
@@ -92,5 +109,13 @@ public abstract class User {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public Set<Role> getRole() {
+        return roles;
+    }
+
+    public void setRole(Set<Role> roles) {
+        this.roles = roles;
     }
 }

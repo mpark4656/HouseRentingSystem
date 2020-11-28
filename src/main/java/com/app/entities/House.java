@@ -1,6 +1,5 @@
 package com.app.entities;
 
-import com.app.entities.user.Owner;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 
@@ -13,7 +12,7 @@ public class House {
 
     @JoinColumn(name = "owner_id", nullable = false)
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Owner owner;
+    private User owner;
 
     @Min(0)
     @Column(name = "num_rooms", nullable = false)
@@ -28,7 +27,7 @@ public class House {
         setLocality(null);
     }
 
-    public House(int numOfRooms, Owner owner, String locality) {
+    public House(int numOfRooms, User owner, String locality) {
         setNumOfRooms(numOfRooms);
         setOwner(owner);
         setLocality(locality);
@@ -42,11 +41,11 @@ public class House {
         this.id = id;
     }
 
-    public Owner getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(Owner owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 
