@@ -1,6 +1,8 @@
 package com.app.repositories;
 
 import com.app.entities.User;
+
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public class UserRepository extends Repository<User> {
@@ -9,10 +11,15 @@ public class UserRepository extends Repository<User> {
     }
 
     public User findByUsername(String username) {
-        return
-            entityManager.createQuery("SELECT u FROM users u WHERE u.username = :username", User.class).
-            setParameter("username", username).
-            getSingleResult();
+        try {
+            return
+                entityManager.
+                createQuery("SELECT u FROM users u WHERE u.username = :username", User.class).
+                setParameter("username", username).
+                getSingleResult();
+        } catch(NoResultException e) {
+            return null;
+        }
     }
 
     public boolean usernameExists(String username) {
