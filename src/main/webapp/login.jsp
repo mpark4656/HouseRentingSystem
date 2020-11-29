@@ -8,7 +8,12 @@
     <%@ include file="templates/navigation-bar.jsp" %>
     <c:if test="${param.err == 'true'}">
         <div class="alert alert-danger text-center" role="alert">
-            Incorrect logon - please try again!
+            Login failure - please try again!
+        </div>
+    </c:if>
+    <c:if test="${param.logout == 'true'}">
+        <div class="alert alert-success text-center" role="alert">
+            You have successfully logged out!
         </div>
     </c:if>
     <div class="container">
