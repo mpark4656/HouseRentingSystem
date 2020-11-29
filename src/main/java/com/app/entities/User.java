@@ -5,11 +5,13 @@ import java.util.Set;
 
 @Entity(name = "users")
 @Table(name = "users")
+@IdClass(UserId.class)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Id
     @Column(nullable = false, unique = true)
     private String username;
 
