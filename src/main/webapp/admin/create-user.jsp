@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="templates/head.jsp">
+<jsp:include page="../templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
 </jsp:include>
 <body>
-<jsp:include page="templates/navigation-bar.html" />
+<%@ include file="../templates/navigation-bar.jsp" %>
 <div class="container">
     <div class="row justify-content-center">
         <h1>Create New User</h1>
@@ -41,21 +41,21 @@
             </div>
         </div>
         <div class="form-check row">
-            <input id="input-user-administrator" type="radio" name="user-type" value="administrator" required>
+            <input id="input-user-administrator" type="checkbox" name="user-type" value="administrator" required>
             <label for="input-user-administrator">Administrator</label>
         </div>
         <div class="form-check row">
-            <input id="input-user-owner" type="radio" name="user-type" value="owner">
+            <input id="input-user-owner" type="checkbox" name="user-type" value="owner">
             <label for="input-user-owner">Owner</label>
         </div>
         <div class="form-check row">
-            <input id="input-user-customer" type="radio" name="user-type" value="customer" checked>
+            <input id="input-user-customer" type="checkbox" name="user-type" value="customer" checked>
             <label for="input-user-customer">Customer</label>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
         <button type="reset" class="btn btn-warning">Reset</button>
     </form>
 <div>
-<jsp:include page="templates/scripts.html" />
+<%@ include file="../templates/scripts.html" %>
 </body>
 </html>

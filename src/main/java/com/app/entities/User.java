@@ -46,7 +46,7 @@ public class User {
     ) {
         setUsername(username);
         setPassword(password);
-        setRole(roles);
+        setRoles(roles);
         setFirstName(firstName);
         setLastName(lastName);
     }
@@ -57,7 +57,7 @@ public class User {
     ) {
         setUsername(username);
         setPassword(password);
-        setRole(role);
+        setRoles(role);
         setFirstName(firstName);
         setLastName(lastName);
         setEmailAddress(emailAddress);
@@ -111,11 +111,11 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public Set<Role> getRole() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRole(Set<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 }
