@@ -5,6 +5,7 @@
     <jsp:param name="title" value="House Rental System" />
 </jsp:include>
 <body>
+    <%@ include file="templates/navigation-bar.jsp" %>
     <c:if test="${param.err == 'true'}">
         <div class="alert alert-danger text-center" role="alert">
             Incorrect logon - please try again!
