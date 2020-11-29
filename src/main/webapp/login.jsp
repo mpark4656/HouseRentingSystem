@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="templates/head.jsp">
-    <jsp:param name="title" value="House Rental System" />
+    <jsp:param name="title" value="Login - House Rental System" />
 </jsp:include>
 <body>
     <%@ include file="templates/navigation-bar.jsp" %>
