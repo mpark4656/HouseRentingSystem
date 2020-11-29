@@ -13,7 +13,7 @@ public class UserRestService extends RestService<User> {
     @Inject
     UserRepository userRepository;
 
-    @Path("find-by-username/{username}")
+    @Path("find-username/{username}")
     public Response get(@PathParam("username") String username) {
         return Response.ok(userRepository.findByUsername(username)).build();
     }
