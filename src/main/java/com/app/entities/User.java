@@ -1,6 +1,8 @@
 package com.app.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 @Entity(name = "users")
@@ -11,9 +13,11 @@ public class User {
     private int id;
 
     @Column(nullable = false, unique = true)
+    @NotBlank
     private String username;
 
     @Column(nullable = false)
+    @NotBlank
     private String password;
 
     @ElementCollection(targetClass = Role.class)
@@ -21,12 +25,15 @@ public class User {
     @Column(nullable = false)
     @OneToMany
     @Enumerated(EnumType.STRING)
+    @NotEmpty
     private Set<Role> roles;
 
     @Column(name = "fname", nullable = false)
+    @NotBlank
     private String firstName;
 
     @Column(name = "lname", nullable = false)
+    @NotBlank
     private String lastName;
 
     @Column(name= "email")
