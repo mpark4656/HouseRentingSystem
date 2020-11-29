@@ -25,23 +25,25 @@ public class AppFilter implements Filter {
         boolean isLoginRequest = httpRequest.getRequestURI().endsWith("login.jsp");
         boolean isLoginURL = httpRequest.getRequestURI().equals(loginURL);
 
-        if(httpRequest.getRequestURI().endsWith(".css") ||
-                httpRequest.getRequestURI().endsWith(".js") ||
-                httpRequest.getRequestURI().endsWith(".png")
+        String contextPath = httpRequest.getContextPath();
+        if(httpRequest.getRequestURI().startsWith(contextPath + "/css") ||
+                httpRequest.getRequestURI().startsWith(contextPath + "/js") ||
+                httpRequest.getRequestURI().startsWith(contextPath + "/img") ||
+                httpRequest.getRequestURI().startsWith(contextPath + "/api/")
         ) {
             filterChain.doFilter(request, response);
             return;
         }
 
         if(session == null && !isLoginRequest && !isLoginURL) {
-            httpResponse.sendRedirect("login");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
             return;
         }
 
         if(session != null && !isLoginRequest && !isLoginURL) {
             User user = (User)session.getAttribute("user");
             if(user == null) {
-                httpResponse.sendRedirect("login");
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                 return;
             }
         }

@@ -24,17 +24,17 @@ public class AdminFilter implements Filter {
         HttpSession session = httpRequest.getSession(false);
 
         if(session == null) {
-            httpResponse.sendRedirect("../login");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
             return;
         } else {
             User user = (User) session.getAttribute("user");
             if(user == null) {
-                httpResponse.sendRedirect("../login");
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                 return;
             } else {
                 HashSet<Role> roles = (HashSet<Role>) user.getRoles();
                 if(!roles.contains(Role.ADMINISTRATOR)) {
-                    httpResponse.sendRedirect("../home");
+                    httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
                     return;
                 }
             }
