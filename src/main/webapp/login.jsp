@@ -1,9 +1,15 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="templates/head.jsp">
     <jsp:param name="title" value="House Rental System" />
 </jsp:include>
 <body>
+    <c:if test="${param.err == 'true'}">
+        <div class="alert alert-danger text-center" role="alert">
+            Incorrect logon - please try again!
+        </div>
+    </c:if>
     <div class="container">
         <div class="row justify-content-center">
             <h1>House Rental System</h1>

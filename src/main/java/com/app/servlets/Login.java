@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
 
             response.sendRedirect("home");
         } else {
-            response.sendRedirect("login-error.jsp");
+            response.sendRedirect("login?err=true");
         }
     }
 }
