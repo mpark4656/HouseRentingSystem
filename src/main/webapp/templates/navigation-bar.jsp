@@ -37,7 +37,7 @@
                             href="${pageContext.request.contextPath}/login">Login</a>
                     </c:when>
                     <c:otherwise>
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
                     </c:otherwise>
                 </c:choose>
             </li>
