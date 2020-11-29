@@ -6,6 +6,10 @@
 
     <display-name>House Renting System</display-name>
     <filter-mapping>
+        <filter-name>ApiFilter</filter-name>
+        <url-pattern />
+    </filter-mapping>
+    <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern />
     </filter-mapping>
