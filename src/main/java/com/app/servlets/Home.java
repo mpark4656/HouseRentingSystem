@@ -12,7 +12,6 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        response.setContentType("text/html");
-        response.getWriter().println("<h1>Hello World</h1>");
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 }
