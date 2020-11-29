@@ -21,7 +21,9 @@
             <c:if test="${role eq 'ADMINISTRATOR'}">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../admin/create-user.jsp">Create User <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../admin/create-user.jsp">
+                            Create User <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                 </ul>
             </c:if>
@@ -29,7 +31,15 @@
 
         <ul class="navbar-nav my-2 my-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <c:choose>
+                    <c:when test="${empty sessionScope.user}">
+                         <a class="nav-link"
+                            href="${pageContext.request.contextPath}/login">Login</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="nav-link" href="#">Logout</a>
+                    </c:otherwise>
+                </c:choose>
             </li>
         </ul>
     </div>
