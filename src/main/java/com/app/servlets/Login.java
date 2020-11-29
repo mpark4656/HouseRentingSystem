@@ -38,14 +38,14 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
 
         if(username != null && password != null &&
-                username.equals("mpark") && password.equals("password")
+                username.equals("root") && password.equals("password")
         ) {
             Set<Role> roleSet = new HashSet<>();
             roleSet.add(Role.ADMINISTRATOR);
             roleSet.add(Role.CUSTOMER);
             roleSet.add(Role.OWNER);
 
-            User user = new User(username, password, roleSet, "Michael", "Park");
+            User user = new User(username, password, roleSet, "Root", "Admin");
             HttpSession session = request.getSession(true);
             session.setAttribute("user", user);
 
