@@ -18,6 +18,15 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        HttpSession session = request.getSession(false);
+        if(session != null) {
+            User user = (User) session.getAttribute("user");
+            if(user != null) {
+                request.getRequestDispatcher("home").forward(request, response);
+            }
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
         dispatcher.forward(request, response);
     }

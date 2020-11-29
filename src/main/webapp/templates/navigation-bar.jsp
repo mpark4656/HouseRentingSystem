@@ -21,7 +21,7 @@
             <c:if test="${role eq 'ADMINISTRATOR'}">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../admin/create-user.jsp">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/admin/create-user.jsp">
                             Create User <span class="sr-only">(current)</span>
                         </a>
                     </li>
