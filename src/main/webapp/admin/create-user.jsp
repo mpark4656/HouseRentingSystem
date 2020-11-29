@@ -41,15 +41,15 @@
             </div>
         </div>
         <div class="form-check row">
-            <input id="input-user-administrator" type="checkbox" name="user-type" value="administrator" required>
+            <input id="input-user-administrator" type="checkbox" name="user-roles" value="administrator" required>
             <label for="input-user-administrator">Administrator</label>
         </div>
         <div class="form-check row">
-            <input id="input-user-owner" type="checkbox" name="user-type" value="owner">
+            <input id="input-user-owner" type="checkbox" name="user-roles" value="owner">
             <label for="input-user-owner">Owner</label>
         </div>
         <div class="form-check row">
-            <input id="input-user-customer" type="checkbox" name="user-type" value="customer" checked>
+            <input id="input-user-customer" type="checkbox" name="user-roles" value="customer" checked>
             <label for="input-user-customer">Customer</label>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
