@@ -26,7 +26,8 @@ public class AppFilter implements Filter {
         boolean isLoginURL = httpRequest.getRequestURI().equals(loginURL);
 
         if(httpRequest.getRequestURI().endsWith(".css") ||
-                httpRequest.getRequestURI().endsWith(".js")
+                httpRequest.getRequestURI().endsWith(".js") ||
+                httpRequest.getRequestURI().endsWith(".png")
         ) {
             filterChain.doFilter(request, response);
             return;
