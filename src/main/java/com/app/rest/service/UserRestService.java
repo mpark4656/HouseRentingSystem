@@ -4,6 +4,7 @@ import com.app.entities.User;
 import com.app.repositories.UserRepository;
 
 import javax.inject.Inject;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
@@ -14,11 +15,13 @@ public class UserRestService extends RestService<User> {
     UserRepository userRepository;
 
     @Path("find-username/{username}")
+    @GET
     public Response get(@PathParam("username") String username) {
         return Response.ok(userRepository.findByUsername(username)).build();
     }
 
     @Path("exists/{username}")
+    @GET
     public Response exists(@PathParam("username") String username) {
         return Response.ok(userRepository.usernameExists(username)).build();
     }
