@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../templates/head.jsp">
@@ -9,7 +10,7 @@
     <div class="row justify-content-center">
         <h1>Create New User</h1>
     </div>
-    <form>
+    <form action="${pageContext.request.contextPath}/admin/create-user" method="post">
         <div class="form-group row">
             <label class="col-md-2 col-form-label" for="username">Username:</label>
             <div class="col-md-10">
