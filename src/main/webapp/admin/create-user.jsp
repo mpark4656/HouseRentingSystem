@@ -1,11 +1,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="${pageContext.request.contextPath}/templates/head.jsp">
+<jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
 </jsp:include>
 <body>
-<%@ include file="${pageContext.request.contextPath}/templates/navigation-bar.jsp" %>
+<jsp:include page="/templates/navigation-bar.jsp"/>
 <div class="container">
     <div class="row justify-content-center">
         <h1>Create New User</h1>
@@ -57,6 +57,6 @@
         <button type="reset" class="btn btn-warning">Reset</button>
     </form>
 <div>
-<%@ include file="${pageContext.request.contextPath}/templates/scripts.html" %>
+<jsp:include page="/templates/scripts.html"/>
 </body>
 </html>
