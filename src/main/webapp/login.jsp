@@ -1,11 +1,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="templates/head.jsp">
+<jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Login - House Rental System" />
 </jsp:include>
 <body>
-    <%@ include file="templates/navigation-bar.jsp" %>
+    <jsp:include page="/templates/navigation-bar.jsp" />
     <c:if test="${param.err == 'true'}">
         <div class="alert alert-danger text-center" role="alert">
             Login failure - please try again!
@@ -21,7 +21,7 @@
             <h1>House Rental System</h1>
         </div>
         <div class="row justify-content-center">
-            <form action="login" method="post">
+            <form action="${pageContext.request.contextPath}/login" method="post">
                 <div class="form-group">
                     <label for="input-username">Username:</label>
                     <input type="text" id="input-username" name="username" class="form-control" required />
@@ -37,6 +37,6 @@
             </form>
         </div>
     </div>
-    <%@ include file="templates/scripts.html" %>
+    <jsp:include page="/templates/scripts.html" />
 </body>
 </html>

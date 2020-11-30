@@ -1,11 +1,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="templates/head.jsp">
+<jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Home - House Rental System" />
 </jsp:include>
 <body>
-    <%@ include file="templates/navigation-bar.jsp" %>
+    <jsp:include page="/templates/navigation-bar.jsp"/>
     <div class="container">
         <div id="main-carousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -73,6 +73,6 @@
                role="button">Learn more</a>
         </div>
     </div>
-    <%@ include file="templates/scripts.html" %>
+    <jsp:include page="/templates/scripts.html"/>
 </body>
 </html>
