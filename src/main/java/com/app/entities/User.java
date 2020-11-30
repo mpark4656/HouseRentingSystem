@@ -125,4 +125,16 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public boolean isAdministrator() {
+        return roles.contains(Role.ADMINISTRATOR);
+    }
+
+    public boolean isOwner() {
+        return roles.contains(Role.OWNER);
+    }
+
+    public boolean isCustomer() {
+        return roles.contains(Role.CUSTOMER);
+    }
 }
