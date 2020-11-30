@@ -11,19 +11,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto">
-        <c:forEach var="role" items="${sessionScope.user.roles}">
-            <c:if test="${role eq 'CUSTOMER'}">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"
-                       href="#" id="adminNavbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Customer
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="adminNavbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Browse</a>
-                    </div>
-                </li>
-            </c:if>
-            <c:if test="${role eq 'ADMINISTRATOR'}">
+            <c:if test="${sessionScope.user.administrator}">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
                        href="#" id="customerNavbarDropdownMenuLink" data-toggle="dropdown"
@@ -37,7 +25,28 @@
                     </div>
                 </li>
             </c:if>
-        </c:forEach>
+            <c:if test="${sessionScope.user.owner}">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#" id="ownerNavbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Owner
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ownerNavbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Create New Posting</a>
+                    </div>
+                </li>
+            </c:if>
+            <c:if test="${sessionScope.user.customer}">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#" id="adminNavbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Customer
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="adminNavbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Browse Postings</a>
+                    </div>
+                </li>
+            </c:if>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
             <c:choose>
