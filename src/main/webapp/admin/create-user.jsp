@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-check row">
-            <input id="input-user-administrator" type="checkbox" name="user-roles" value="administrator" required>
+            <input id="input-user-administrator" type="checkbox" name="user-roles" value="administrator">
             <label for="input-user-administrator">Administrator</label>
         </div>
         <div class="form-check row">
@@ -50,7 +50,7 @@
             <label for="input-user-owner">Owner</label>
         </div>
         <div class="form-check row">
-            <input id="input-user-customer" type="checkbox" name="user-roles" value="customer" checked>
+            <input id="input-user-customer" type="checkbox" name="user-roles" value="customer">
             <label for="input-user-customer">Customer</label>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
