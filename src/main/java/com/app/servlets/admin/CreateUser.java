@@ -4,7 +4,9 @@ import com.app.entities.Role;
 import com.app.entities.User;
 import com.app.repositories.Repository;
 import javax.inject.Inject;
+import javax.persistence.PersistenceException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.util.HashSet;
 
 @WebServlet(urlPatterns={"/admin/create-user"})
+@MultipartConfig
 public class CreateUser extends HttpServlet {
     @Inject
     Repository<User> userRepository;
@@ -30,19 +33,19 @@ public class CreateUser extends HttpServlet {
         try {
             User user = getUserParams(request);
             userRepository.create(user);
-        } catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
 
-        response.sendRedirect(request.getContextPath() + "/admin/create-user");
+            response.setStatus(HttpServletResponse.SC_OK);
+        } catch(PersistenceException e) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
     }
 
     private User getUserParams(HttpServletRequest request) {
         String username = request.getParameter("username").toLowerCase();
         String password = request.getParameter("password");
-        String firstName = request.getParameter("firstname");
-        String lastName = request.getParameter("lastname");
-        String email = request.getParameter("email");
+        String firstName = request.getParameter("firstname").toUpperCase();
+        String lastName = request.getParameter("lastname").toUpperCase();
+        String email = request.getParameter("email").toUpperCase();
         String[] selectedRoles = request.getParameterValues("user-roles");
         HashSet<Role> roles = new HashSet<>();
 
