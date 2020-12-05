@@ -17,6 +17,8 @@ the users of the system. Customer is the one who is looking for
 a rental house. He can search the house according to the
 requirements and get the results accordingly.
 
+The application provides RESTful API endpoints for integration.
+
 ## Built With
 * Maven: Build Tool
 * Intellij NetBrain Community Edition: IDE
@@ -44,3 +46,32 @@ To create an uber jar, execute the command below.
 
 java -jar [payara-micro-5.2020.5.jar] --deploy [HouseRentingSystem.war] --port [8080]
 -- outputUberJar [HouseRentingSystemUber.jar]
+
+## REST Endpoints
+
+### User Accounts
+POST    /HouseRentingSystem/api/v1/user/create
+DELETE  /HouseRentingSystem/api/v1/user/delete
+DELETE  /HouseRentingSystem/api/v1/user/delete/{id}
+GET     /HouseRentingSystem/api/v1/user/get/{id}
+GET     /HouseRentingSystem/api/v1/user/list
+PUT     /HouseRentingSystem/api/v1/user/update
+GET     /HouseRentingSystem/api/v1/user/email-exists/{email}
+GET     /HouseRentingSystem/api/v1/user/find-username/{username}
+GET     /HouseRentingSystem/api/v1/user/username-exists/{username}
+
+### Houses
+POST    /HouseRentingSystem/api/v1/house/create
+DELETE  /HouseRentingSystem/api/v1/house/delete
+DELETE  /HouseRentingSystem/api/v1/house/delete/{id}
+GET     /HouseRentingSystem/api/v1/house/get/{id}
+GET     /HouseRentingSystem/api/v1/house/list
+PUT     /HouseRentingSystem/api/v1/house/update
+
+### Rentals
+POST    /HouseRentingSystem/api/v1/rental/create
+DELETE  /HouseRentingSystem/api/v1/rental/delete
+DELETE  /HouseRentingSystem/api/v1/rental/delete/{id}
+GET     /HouseRentingSystem/api/v1/rental/get/{id}
+GET     /HouseRentingSystem/api/v1/rental/list
+PUT     /HouseRentingSystem/api/v1/rental/update
