@@ -1,7 +1,7 @@
 # Online House Renting System (Under Development)
 ## Project Description
 
-Deployed to Heroku: https://houserentingsystem.herokuapp.com/HouseRentingSystem/login \
+Deployed to Heroku: https://payara-micros.herokuapp.com/HouseRentingSystem \
 (Heroku leaves the application inactive when there is no activity. You may get
 the "404 - Not Found" message until the application fully starts up)
 
