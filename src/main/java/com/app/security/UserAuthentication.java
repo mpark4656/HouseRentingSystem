@@ -45,7 +45,7 @@ public class UserAuthentication {
                     roleSet,
                     "ROOT",
                     "ADMIN",
-                    ROOT_EMAIL
+                    ROOT_EMAIL.toUpperCase()
             );
             return userRepository.create(user);
         } catch(Exception e) {
