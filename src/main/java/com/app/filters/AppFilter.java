@@ -26,6 +26,8 @@ public class AppFilter implements Filter {
         boolean isLoginURL = httpRequest.getRequestURI().equals(loginURL);
 
         String contextPath = httpRequest.getContextPath();
+
+        // Excluded directories from this filter
         if(httpRequest.getRequestURI().startsWith(contextPath + "/css") ||
                 httpRequest.getRequestURI().startsWith(contextPath + "/js") ||
                 httpRequest.getRequestURI().startsWith(contextPath + "/img") ||
@@ -35,15 +37,26 @@ public class AppFilter implements Filter {
             return;
         }
 
+        // Session is not live and the request isn't for login, then redirect to login page
         if(session == null && !isLoginRequest && !isLoginURL) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
             return;
         }
 
+        // Session is live and request isn't for login
         if(session != null && !isLoginRequest && !isLoginURL) {
             User user = (User)session.getAttribute("user");
             if(user == null) {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+                return;
+            }
+        }
+
+        // Session is live and request is for login
+        if(session != null && (isLoginRequest || isLoginURL)) {
+            User user = (User)session.getAttribute("user");
+            if(user != null) {
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
                 return;
             }
         }
