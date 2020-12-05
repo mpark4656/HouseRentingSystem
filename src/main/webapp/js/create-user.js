@@ -23,7 +23,7 @@ document.getElementById('user-create-form').addEventListener('submit', function(
                 setTimeout(function () { $('#success-alert').hide(); }, duration);
             });
 
-            $('#user-create-form').reset();
+            $('#user-create-form')[0].reset();
         }
 
         if(xhr.readyState == xhr.DONE && xhr.status != 200) {
