@@ -33,7 +33,7 @@ public class UserRepository extends Repository<User> {
 
     public boolean emailExists(String email) {
         List<User> users =
-                entityManager.createQuery("SELECT u FROM users u WHERE u.emailAddress = :email", User.class).
+                entityManager.createQuery("SELECT u FROM users u WHERE upper(u.emailAddress) = :email", User.class).
                         setParameter("email", email.toUpperCase()).
                         getResultList();
 
