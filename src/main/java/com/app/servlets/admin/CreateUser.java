@@ -50,7 +50,7 @@ public class CreateUser extends HttpServlet {
     }
 
     private User getUserParams(HttpServletRequest request) {
-        String username = request.getParameter("username").toLowerCase();
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         String firstName = request.getParameter("firstname").toUpperCase();
         String lastName = request.getParameter("lastname").toUpperCase();
