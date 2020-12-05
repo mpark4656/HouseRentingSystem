@@ -36,7 +36,8 @@ public class User {
     @NotBlank
     private String lastName;
 
-    @Column(name= "email")
+    @Column(name = "email", nullable = false, unique = true)
+    @NotBlank
     private String emailAddress;
 
     public User() {
