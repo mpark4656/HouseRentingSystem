@@ -31,6 +31,15 @@ public class UserRepository extends Repository<User> {
         return !users.isEmpty();
     }
 
+    public boolean emailExists(String email) {
+        List<User> users =
+                entityManager.createQuery("SELECT u FROM users u WHERE u.email = :email", User.class).
+                        setParameter("email", email).
+                        getResultList();
+
+        return !users.isEmpty();
+    }
+
     public List<User> list() {
         return entityManager.createQuery("SELECT u FROM users u", User.class).getResultList();
     }
