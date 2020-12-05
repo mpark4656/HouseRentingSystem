@@ -2,6 +2,12 @@
 ## Project Description
 
 Deployed to Heroku: https://houserentingsystem.herokuapp.com/HouseRentingSystem/login
+(Heroku leaves the application inactive when there is no activity. You may get
+404 - Not Found message until the application fully starts up)
+
+Test Logon
+Username: root
+Password: password
 
 This project idea is from
 https://data-flair.training/blogs/java-project-ideas/.
