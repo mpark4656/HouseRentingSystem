@@ -20,9 +20,15 @@ public class UserRestService extends RestService<User> {
         return Response.ok(userRepository.findByUsername(username)).build();
     }
 
-    @Path("exists/{username}")
+    @Path("username-exists/{username}")
     @GET
-    public Response exists(@PathParam("username") String username) {
+    public Response usernameExists(@PathParam("username") String username) {
         return Response.ok(userRepository.usernameExists(username)).build();
+    }
+
+    @Path("email-exists/{email}")
+    @GET
+    public Response emailExists(@PathParam("email") String email) {
+        return Response.ok(userRepository.emailExists(email)).build();
     }
 }
