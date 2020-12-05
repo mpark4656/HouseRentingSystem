@@ -2,9 +2,8 @@ package com.app.servlets.admin;
 
 import com.app.entities.Role;
 import com.app.entities.User;
-import com.app.repositories.Repository;
+import com.app.repositories.UserRepository;
 import javax.inject.Inject;
-import javax.persistence.PersistenceException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +17,7 @@ import java.util.HashSet;
 @MultipartConfig
 public class CreateUser extends HttpServlet {
     @Inject
-    Repository<User> userRepository;
+    UserRepository userRepository;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,10 +31,20 @@ public class CreateUser extends HttpServlet {
 
         try {
             User user = getUserParams(request);
-            userRepository.create(user);
 
+            if(userRepository.usernameExists(user.getUsername())) {
+                response.sendError(HttpServletResponse.SC_CONFLICT, "The username already exists");
+                return;
+            }
+
+            if(userRepository.emailExists(user.getEmailAddress())) {
+                response.sendError(HttpServletResponse.SC_CONFLICT, "The e-mail address already exists");
+                return;
+            }
+
+            userRepository.create(user);
             response.setStatus(HttpServletResponse.SC_OK);
-        } catch(PersistenceException e) {
+        } catch(Exception e) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
