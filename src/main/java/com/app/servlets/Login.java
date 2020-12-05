@@ -1,7 +1,8 @@
 package com.app.servlets;
 
-import com.app.entities.Role;
 import com.app.entities.User;
+import com.app.security.UserAuthentication;
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 @WebServlet(urlPatterns = {"/login"})
 public class Login extends HttpServlet {
+    @Inject
+    UserAuthentication userAuthentication;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -23,7 +25,8 @@ public class Login extends HttpServlet {
         if(session != null) {
             User user = (User) session.getAttribute("user");
             if(user != null) {
-                request.getRequestDispatcher("home").forward(request, response);
+                response.sendRedirect("/home");
+                return;
             }
         }
 
@@ -36,19 +39,11 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        User user = userAuthentication.authenticate(username, password);
 
-        if(username != null && password != null &&
-                username.equals("root") && password.equals("password")
-        ) {
-            Set<Role> roleSet = new HashSet<>();
-            roleSet.add(Role.ADMINISTRATOR);
-            roleSet.add(Role.CUSTOMER);
-            roleSet.add(Role.OWNER);
-
-            User user = new User(username, password, roleSet, "Root", "Admin");
+        if(user != null) {
             HttpSession session = request.getSession(true);
             session.setAttribute("user", user);
-
             response.sendRedirect("home");
         } else {
             response.sendRedirect("login?err=true");
