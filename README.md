@@ -5,7 +5,8 @@ Deployed to Heroku: https://payara-micros.herokuapp.com/HouseRentingSystem/login
 (Heroku leaves the application inactive when there is no activity. You may get
 the "404 - Not Found" message until the application fully starts up)
 
-Test Logon\
+Test Logon (This root account has the priviliges of all three roles:
+Administrator, Customer, and Owner)\
 Username: root\
 Password: password
 
