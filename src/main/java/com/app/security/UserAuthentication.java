@@ -43,8 +43,8 @@ public class UserAuthentication {
                     ROOT_USERNAME,
                     ROOT_PASSWORD,
                     roleSet,
-                    "Root",
-                    "Admin",
+                    "ROOT",
+                    "ADMIN",
                     ROOT_EMAIL
             );
             return userRepository.create(user);
