@@ -32,8 +32,7 @@ public class AdminFilter implements Filter {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                 return;
             } else {
-                HashSet<Role> roles = (HashSet<Role>) user.getRoles();
-                if(!roles.contains(Role.ADMINISTRATOR)) {
+                if(!user.getRoles().contains(Role.ADMINISTRATOR)) {
                     httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
                     return;
                 }
