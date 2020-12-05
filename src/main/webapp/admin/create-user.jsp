@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <h1>Create New User</h1>
     </div>
-    <form action="${pageContext.request.contextPath}/admin/create-user" method="post">
+    <form id="user-create-form">
         <div class="form-group row">
             <label class="col-md-2 col-form-label" for="username">Username:</label>
             <div class="col-md-10">
@@ -57,6 +57,8 @@
         <button type="reset" class="btn btn-warning">Reset</button>
     </form>
 <div>
-<jsp:include page="/templates/scripts.html"/>
+<jsp:include page="/templates/scripts.jsp">
+    <jsp:param name="scripts" value="create-user.js" />
+</jsp:include>
 </body>
 </html>
