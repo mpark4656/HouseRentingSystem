@@ -61,7 +61,7 @@
                         <a class="nav-link dropdown-toggle"
                            href="#" id="userNavbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                           HELLOs, ${sessionScope.user.firstName} ${sessionScope.user.lastName}!
+                           HELLO, ${sessionScope.user.firstName} ${sessionScope.user.lastName}!
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userNavbarDropdownMenuLink">
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">
