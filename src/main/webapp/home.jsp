@@ -73,6 +73,6 @@
                role="button">Learn more</a>
         </div>
     </div>
-    <jsp:include page="/templates/scripts.html"/>
+    <jsp:include page="/templates/scripts.jsp"/>
 </body>
 </html>
