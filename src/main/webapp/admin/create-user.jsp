@@ -16,7 +16,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Error Message</p>
+        <p id="modal-body-message">Error Message</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -59,7 +59,7 @@
         <div class="form-group row">
             <label class="col-md-2 col-form-label" for="email">Email:</label>
             <div class="col-md-10">
-                <input type="email" id="email" name="email" class="form-control">
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
         </div>
         <div class="form-check row">
