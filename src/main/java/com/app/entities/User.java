@@ -49,17 +49,6 @@ public class User {
     }
 
     public User(
-            String username, String password, Set<Role> roles,
-            String firstName, String lastName
-    ) {
-        setUsername(username);
-        setPassword(password);
-        setRoles(roles);
-        setFirstName(firstName);
-        setLastName(lastName);
-    }
-
-    public User(
             String username, String password, Set<Role> role,
             String firstName, String lastName, String emailAddress
     ) {
