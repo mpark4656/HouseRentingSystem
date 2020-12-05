@@ -14,8 +14,8 @@ public class UserRepository extends Repository<User> {
         try {
             return
                 entityManager.
-                createQuery("SELECT u FROM users u WHERE u.username = :username", User.class).
-                setParameter("username", username).
+                createQuery("SELECT u FROM users u WHERE lower(u.username) = :username", User.class).
+                setParameter("username", username.toLowerCase()).
                 getSingleResult();
         } catch(NoResultException e) {
             return null;
@@ -24,8 +24,8 @@ public class UserRepository extends Repository<User> {
 
     public boolean usernameExists(String username) {
         List<User> users =
-            entityManager.createQuery("SELECT u FROM users u WHERE u.username = :username", User.class).
-            setParameter("username", username).
+            entityManager.createQuery("SELECT u FROM users u WHERE lower(u.username) = :username", User.class).
+            setParameter("username", username.toLowerCase()).
             getResultList();
 
         return !users.isEmpty();
@@ -33,8 +33,8 @@ public class UserRepository extends Repository<User> {
 
     public boolean emailExists(String email) {
         List<User> users =
-                entityManager.createQuery("SELECT u FROM users u WHERE u.email = :email", User.class).
-                        setParameter("email", email).
+                entityManager.createQuery("SELECT u FROM users u WHERE u.emailAddress = :email", User.class).
+                        setParameter("email", email.toUpperCase()).
                         getResultList();
 
         return !users.isEmpty();
