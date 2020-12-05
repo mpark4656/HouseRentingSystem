@@ -1,5 +1,8 @@
 # Online House Renting System
 ## Project Description
+
+Deployed to Heroku: https://houserentingsystem.herokuapp.com/HouseRentingSystem/login
+
 This project idea is from
 https://data-flair.training/blogs/java-project-ideas/.
 House rental portal is a web-based java project
