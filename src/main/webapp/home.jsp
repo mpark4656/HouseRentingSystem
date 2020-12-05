@@ -3,6 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Home - House Rental System" />
+    <jsp:param name="stylesheets" value="home.css" />
 </jsp:include>
 <body>
     <jsp:include page="/templates/navigation-bar.jsp"/>
