@@ -19,6 +19,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="customerNavbarDropdownMenuLink">
                         <a class="dropdown-item"
+                            href="${pageContext.request.contextPath}/admin/view-user">
+                            View Users
+                        </a>
+                        <a class="dropdown-item"
                             href="${pageContext.request.contextPath}/admin/create-user">
                             Create New User
                         </a>
