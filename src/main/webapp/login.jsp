@@ -8,12 +8,12 @@
     <jsp:include page="/templates/navigation-bar.jsp" />
     <c:if test="${param.err == 'true'}">
         <div class="alert alert-danger text-center" role="alert">
-            Login failure - please check your username/password and try again!
+            Check your username/password and try again
         </div>
     </c:if>
     <c:if test="${param.logout == 'true'}">
         <div class="alert alert-success text-center" role="alert">
-            You have successfully logged out!
+            You have successfully logged out
         </div>
     </c:if>
     <div class="container">
