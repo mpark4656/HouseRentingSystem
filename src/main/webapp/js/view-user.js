@@ -1,14 +1,39 @@
 $('.button-view-user').click(function() {
-    $username = $(this).data('username');
-    alert($username);
+    let username = $(this).data('username');
+
+    $('#user-modal').modal('show');
 });
 
 $('.button-edit-user').click(function() {
-    $username = $(this).data('username');
-    alert($username);
+    let username = $(this).data('username');
+    $('#user-modal').modal('show');
 });
 
 $('.button-delete-user').click(function() {
-    $username = $(this).data('username');
-    alert($username);
+    let username = $(this).data('username');
+    $('#user-modal').modal('show');
 });
+
+function hideModalUserInputs() {
+
+}
+
+function showModalUserInputs() {
+
+}
+
+function setModalUserInputsReadOnly() {
+
+}
+
+function setModalUserInputEditable() {
+
+}
+
+function showModalResetPasswordButton() {
+
+}
+
+function hideModalResetPasswordButton() {
+
+}
