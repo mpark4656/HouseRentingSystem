@@ -11,15 +11,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="user-modal-label">Modal</h5>
+                <h5 id="modal-title" class="modal-title" id="user-modal-label">Modal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
+
                 <div class="form-group">
                     <label for="modal-username" class="form-label">Username</label>
-                    <input id="modal-username" type="text" class="form-control">
+                    <input id="modal-username" type="text" class="form-control" readonly>
                 </div>
                 <div class="form-group">
                     <label for="modal-first-name" class="form-label">First Name</label>
@@ -45,11 +46,13 @@
                     <input id="modal-user-customer" type="checkbox" value="customer">
                     <label for="modal-user-customer">Customer</label>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button id="modal-resetpw-button" type="button" class="btn btn-warning">Reset Password</button>
                 <button id="modal-submit-button" type="button" class="btn btn-primary">Save changes</button>
+                <button id="modal-delete-button" type="button" class="btn btn-danger">Delete</button>
             </div>
         </div>
     </div>
