@@ -7,6 +7,53 @@
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
+<div id="user-modal" class="modal" tabindex="-1" aria-labelledby="user-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="user-modal-label">Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modal-username" class="form-label">Username</label>
+                    <input id="modal-username" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="modal-first-name" class="form-label">First Name</label>
+                    <input id="modal-first-name" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="modal-last-name" class="form-label">Last Name</label>
+                    <input id="modal-last-name" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="modal-email" class="form-label">E-mail Address</label>
+                    <input id="modal-email" type="email" class="form-control">
+                </div>
+                <div class="form-check">
+                    <input id="modal-user-administrator" type="checkbox" value="administrator">
+                    <label for="modal-user-administrator">Administrator</label>
+                </div>
+                <div class="form-check">
+                    <input id="modal-user-owner" type="checkbox" value="owner">
+                    <label for="modal-user-owner">Owner</label>
+                </div>
+                <div class="form-check">
+                    <input id="modal-user-customer" type="checkbox" value="customer">
+                    <label for="modal-user-customer">Customer</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="modal-resetpw-button" type="button" class="btn btn-warning">Reset Password</button>
+                <button id="modal-submit-button" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <h1>Existing Users</h1>
