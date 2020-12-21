@@ -40,6 +40,14 @@ public class UserRepository extends Repository<User> {
         return !users.isEmpty();
     }
 
+    public User deleteByUsername(String username) {
+        User user = findByUsername(username);
+        if(user != null) {
+            entityManager.remove(user);
+        }
+        return user;
+    }
+
     public List<User> list() {
         return entityManager.createQuery("SELECT u FROM users u", User.class).getResultList();
     }
