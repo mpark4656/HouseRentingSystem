@@ -5,10 +5,7 @@ import com.app.repositories.UserRepository;
 import com.app.security.UserAuthentication;
 
 import javax.inject.Inject;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Path("user")
@@ -36,7 +33,7 @@ public class UserRestService extends RestService<User> {
 
     @Path("delete-by-username")
     @DELETE
-    public Response deleteByUsername(String username) {
+    public Response deleteByUsername(@QueryParam("username") String username) {
         if(username.equals(UserAuthentication.ROOT_USERNAME)) {
             return Response.status(403, "The default root account can't be deleted").build();
         }
