@@ -13,9 +13,9 @@ public class UserAuthentication {
     @Inject
     private UserRepository userRepository;
 
-    private final String ROOT_USERNAME = "root";
-    private final String ROOT_PASSWORD = "password";
-    private final String ROOT_EMAIL = "root@app.com";
+    public static final String ROOT_USERNAME = "root";
+    private static final String ROOT_PASSWORD = "password";
+    private static final String ROOT_EMAIL = "root@app.com";
 
     public User authenticate(String username, String password) {
         if(username == null || password == null) return null;
