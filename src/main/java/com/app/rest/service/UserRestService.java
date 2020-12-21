@@ -34,7 +34,7 @@ public class UserRestService extends RestService<User> {
         return Response.ok(userRepository.emailExists(email)).build();
     }
 
-    @Path("deleteByUsername")
+    @Path("delete-by-username")
     @DELETE
     public Response deleteByUsername(String username) {
         if(username.equals(UserAuthentication.ROOT_USERNAME)) {
