@@ -2,8 +2,10 @@ package com.app.rest.service;
 
 import com.app.entities.User;
 import com.app.repositories.UserRepository;
+import com.app.security.UserAuthentication;
 
 import javax.inject.Inject;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -30,5 +32,20 @@ public class UserRestService extends RestService<User> {
     @GET
     public Response emailExists(@PathParam("email") String email) {
         return Response.ok(userRepository.emailExists(email)).build();
+    }
+
+    @Path("deleteByUsername")
+    @DELETE
+    public Response deleteByUsername(String username) {
+        if(username.equals(UserAuthentication.ROOT_USERNAME)) {
+            return Response.status(403, "The default root account can't be deleted").build();
+        }
+
+        User user = userRepository.deleteByUsername(username);
+        if(user == null) {
+            return Response.status(404, "Unable to find this user").build();
+        } else {
+            return Response.ok(user).build();
+        }
     }
 }
