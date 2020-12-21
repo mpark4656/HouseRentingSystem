@@ -20,6 +20,7 @@ function showUserModal(username, action) {
         contentType: 'application/json',
         success: function(user) {
             populateUserInputs(user);
+            setButtonDataAttributes(user.username);
             if(action === 'view') {
                 $('#modal-resetpw-button').hide();
                 $('#modal-submit-button').hide();
@@ -44,6 +45,12 @@ function showUserModal(username, action) {
             $('#user-modal').modal('show');
         }
     });
+}
+
+function setButtonDataAttributes(username) {
+    $('#modal-submit-button').attr('data-username', username);
+    $('#modal-delete-button').attr('data-username', username);
+    $('#modal-resetpw-button').attr('data-username', username);
 }
 
 function populateUserInputs(user) {
