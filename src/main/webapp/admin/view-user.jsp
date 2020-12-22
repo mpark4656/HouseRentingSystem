@@ -62,7 +62,7 @@
         <h1>Existing Users</h1>
     </div>
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table id="user-table" class="table table-bordered">
             <thead>
                 <tr>
                     <th>Username</th>
@@ -76,7 +76,7 @@
             <tbody>
                 <c:forEach var="user" items="${requestScope.users}">
                 <tr>
-                    <td><c:out value="${user.username}"/></td>
+                    <td class="tr-username"><c:out value="${user.username}"/></td>
                     <td><c:out value="${user.firstName}"/></td>
                     <td><c:out value="${user.lastName}"/></td>
                     <td><c:out value="${user.emailAddress}"/></td>
@@ -97,7 +97,7 @@
     </div>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="view-user.js" />
+    <jsp:param name="scripts" value="view-user.js,delete-user.js" />
 </jsp:include>
 </body>
 </html>
