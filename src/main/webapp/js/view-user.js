@@ -1,14 +1,14 @@
-$('.button-view-user').click(function() {
+$('.button-view-user').on('click', function() {
     let username = $(this).data('username');
     showUserModal(username, 'view');
 });
 
-$('.button-edit-user').click(function() {
+$('.button-edit-user').on('click', function() {
     let username = $(this).data('username');
     showUserModal(username, 'edit');
 });
 
-$('.button-delete-user').click(function() {
+$('.button-delete-user').on('click', function() {
     let username = $(this).data('username');
     showUserModal(username, 'delete');
 });
@@ -48,9 +48,9 @@ function showUserModal(username, action) {
 }
 
 function setButtonDataAttributes(username) {
-    $('#modal-submit-button').attr('data-username', username);
-    $('#modal-delete-button').attr('data-username', username);
-    $('#modal-resetpw-button').attr('data-username', username);
+    $('#modal-submit-button').data('username', username);
+    $('#modal-delete-button').data('username', username);
+    $('#modal-resetpw-button').data('username', username);
 }
 
 function populateUserInputs(user) {
