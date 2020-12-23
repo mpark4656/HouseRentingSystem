@@ -20,19 +20,19 @@
 
                 <div class="form-group">
                     <label for="modal-username" class="form-label">Username</label>
-                    <input id="modal-username" type="text" class="form-control" readonly>
+                    <input id="modal-username" type="text" class="form-control" readonly required>
                 </div>
                 <div class="form-group">
                     <label for="modal-first-name" class="form-label">First Name</label>
-                    <input id="modal-first-name" type="text" class="form-control">
+                    <input id="modal-first-name" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="modal-last-name" class="form-label">Last Name</label>
-                    <input id="modal-last-name" type="text" class="form-control">
+                    <input id="modal-last-name" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="modal-email" class="form-label">E-mail Address</label>
-                    <input id="modal-email" type="email" class="form-control">
+                    <input id="modal-email" type="email" class="form-control" required>
                 </div>
                 <div class="form-check">
                     <input id="modal-user-administrator" type="checkbox" value="administrator">
