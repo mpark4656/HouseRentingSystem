@@ -5,21 +5,40 @@ $('.button-resetpw-user').on('click', function() {
 $('#modal-submit-button').on('click', function() {
     let username = $(this).data('username');
     if(username === 'root') {
-        alert('The default root account can\'t be deleted.');
+        alert('The default root account can\'t be edited.');
     } else {
-        updateUserObj();
+        $.ajax({
+            type: 'PUT',
+            url: ctx + '/api/v1/user/update-user',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify(getUserObj(username)),
+            success: function(user) {
+                alert('Success');
+            },
+            error: function (request, status, error) {
+                alert(error);
+            }
+        });
     }
+    $('#user-modal').modal('hide');
 });
 
-function updateUserObj() {
-    userObj.firstName = $('#modal-first-name').val();
-    userObj.lastName = $('#modal-last-name').val();
-    userObj.emailAddress = $('#modal-email').val();
-    userObj.owner = $('#modal-user-owner').prop('checked');
-    userObj.administrator = $('#modal-user-administrator').prop('checked');
-    userObj.customer = $('#modal-user-customer').prop('checked');
-    userObj.roles = [];
-    if(userObj.owner) userObj.roles.push('OWNER');
-    if(userObj.administrator) userObj.roles.push('ADMINISTRATOR');
-    if(userObj.customer) userObj.roles.push('CUSTOMER');
+function getUserObj(username) {
+    var userRoles = [];
+    if($('#modal-user-owner').prop('checked')) userRoles.push('OWNER');
+    if($('#modal-user-administrator').prop('checked')) userRoles.push('ADMINISTRATOR');
+    if($('#modal-user-customer').prop('checked')) userRoles.push('CUSTOMER');
+
+    var userObj = {
+        username: username,
+        firstName: $('#modal-first-name').val(),
+        lastName: $('#modal-last-name').val(),
+        emailAddress: $('#modal-email').val(),
+        owner: $('#modal-user-owner').prop('checked'),
+        administrator: $('#modal-user-administrator').prop('checked'),
+        customer: $('#modal-user-customer').prop('checked'),
+        roles: userRoles
+    }
+    return userObj;
 }
