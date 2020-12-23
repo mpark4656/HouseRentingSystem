@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="View Existing Users" />
-    <jsp:param name="stylesheets" value="view-user.css" />
+    <jsp:param name="stylesheets" value="form-validation.css,view-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
@@ -16,43 +16,53 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-
-                <div class="form-group">
-                    <label for="modal-username" class="form-label">Username</label>
-                    <input id="modal-username" type="text" class="form-control" readonly required>
+            <form class="validation-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="modal-username" class="form-label">Username</label>
+                        <input id="modal-username" type="text" class="form-control" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-first-name" class="form-label">First Name</label>
+                        <input id="modal-first-name" type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-last-name" class="form-label">Last Name</label>
+                        <input id="modal-last-name" type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">E-mail Address</label>
+                        <input id="modal-email" type="email" class="form-control" required>
+                    </div>
+                    <span class="checkbox-validation-message">You must select at least one role for this user.</span>
+                    <div class="form-check">
+                        <input id="modal-user-administrator"
+                            type="checkbox"
+                            value="administrator"
+                            class="checkbox-validation">
+                        <label for="modal-user-administrator">Administrator</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="modal-user-owner"
+                            type="checkbox"
+                            value="owner"
+                            class="checkbox-validation">
+                        <label for="modal-user-owner">Owner</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="modal-user-customer"
+                            type="checkbox"
+                            value="customer"
+                            class="checkbox-validation">
+                        <label for="modal-user-customer">Customer</label>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="modal-first-name" class="form-label">First Name</label>
-                    <input id="modal-first-name" type="text" class="form-control" required>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="modal-submit-button" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="modal-delete-button" type="button" class="btn btn-danger">Delete</button>
                 </div>
-                <div class="form-group">
-                    <label for="modal-last-name" class="form-label">Last Name</label>
-                    <input id="modal-last-name" type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="modal-email" class="form-label">E-mail Address</label>
-                    <input id="modal-email" type="email" class="form-control" required>
-                </div>
-                <div class="form-check">
-                    <input id="modal-user-administrator" type="checkbox" value="administrator">
-                    <label for="modal-user-administrator">Administrator</label>
-                </div>
-                <div class="form-check">
-                    <input id="modal-user-owner" type="checkbox" value="owner">
-                    <label for="modal-user-owner">Owner</label>
-                </div>
-                <div class="form-check">
-                    <input id="modal-user-customer" type="checkbox" value="customer">
-                    <label for="modal-user-customer">Customer</label>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="modal-submit-button" type="button" class="btn btn-primary">Save changes</button>
-                <button id="modal-delete-button" type="button" class="btn btn-danger">Delete</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -104,7 +114,7 @@
     </div>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="view-user.js,delete-user.js,update-user.js" />
+    <jsp:param name="scripts" value="form-validation.js,view-user.js,delete-user.js,update-user.js" />
 </jsp:include>
 </body>
 </html>

@@ -1,5 +1,6 @@
 $('.password-confirm').popover({
-    placement: 'right'
+    placement: 'right',
+    trigger: 'manual'
 });
 
 $('.password-popover-reset').on('keyup', function() {
@@ -30,7 +31,10 @@ function validateForm() {
     $('.checkbox-validation').each(function(i, checkbox) {
         if($(checkbox).prop('checked')) checkBoxChecked = true;
     });
-    if(!checkBoxChecked) result = false;
+    if(!checkBoxChecked) {
+        $('.checkbox-validation-message').show();
+        result = false;
+    }
 
     return result;
 }

@@ -59,6 +59,7 @@
                     data-toggle="popover"
                     title="Password Confirmation"
                     data-content="Passwords do not match."
+                    placeholder="Re-enter Password"
                     required>
             </div>
         </div>

@@ -13,6 +13,8 @@ $('#modal-submit-button').on('click', function() {
         alert('The default root account can\'t be edited.');
         $('#user-modal').modal('hide');
     } else {
+        if(!validateForm()) return;
+
         $.ajax({
             type: 'PUT',
             url: ctx + '/api/v1/user/update-user',
