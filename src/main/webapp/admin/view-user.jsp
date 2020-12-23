@@ -16,7 +16,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="validation-form">
+            <form id="user-modal-form" class="validation-form">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="modal-username" class="form-label">Username</label>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="modal-submit-button" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="modal-submit-button" type="submit" class="btn btn-primary">Save changes</button>
                     <button id="modal-delete-button" type="button" class="btn btn-danger">Delete</button>
                 </div>
             </form>
