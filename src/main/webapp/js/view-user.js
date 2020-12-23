@@ -1,5 +1,3 @@
-var userObj = null;
-
 $('.button-view-user').on('click', function() {
     let username = $(this).data('username');
     showUserModal(username, 'view');
@@ -21,7 +19,6 @@ function showUserModal(username, action) {
         type: 'GET',
         contentType: 'application/json',
         success: function(user) {
-            userObj = user;
             populateUserInputs(user);
             setButtonDataAttributes(user.username);
             if(action === 'view') {
