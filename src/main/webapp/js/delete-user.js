@@ -3,6 +3,7 @@ $('#modal-delete-button').on('click', function() {
 
     if(username === 'root') {
         alert('The default root account can\'t be deleted.');
+        $('#user-modal').modal('hide');
     } else {
         $.ajax({
             type: 'DELETE',
@@ -15,11 +16,11 @@ $('#modal-delete-button').on('click', function() {
                         tr.remove();
                     }
                 });
+                $('#user-modal').modal('hide');
             },
             error: function (request, status, error) {
                 alert(error);
             }
         });
     }
-    $('#user-modal').modal('hide');
 });
