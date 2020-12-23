@@ -12,7 +12,7 @@ $('#modal-delete-button').on('click', function() {
             success: function(user) {
                 alert(user.username + ' has been successfully removed.');
                 $('#user-table tbody tr').each(function(i, tr) {
-                    if($('.tr-username', tr).text() === user.username) {
+                    if(tr.cells[0].innerText === user.username) {
                         tr.remove();
                     }
                 });
