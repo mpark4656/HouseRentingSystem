@@ -15,7 +15,27 @@ $('#modal-submit-button').on('click', function() {
             dataType: 'json',
             data: JSON.stringify(getUserObj(username)),
             success: function(user) {
-                alert('Success');
+                alert(user.username + ' has been changed successfully.');
+                $('#user-table tbody tr').each(function(i, tr) {
+                    if(tr.cells[0].innerText === user.username) {
+                        tr.cells[1].innerText = user.firstName;
+                        tr.cells[2].innerText = user.lastName;
+                        tr.cells[3].innerText = user.emailAddress;
+                        tr.cells[4].innerText = '';
+                        user.roles.forEach(function(role, i) {
+                            if(role === 'ADMINISTRATOR') {
+                                var strongElement = document.createElement('strong');
+                                var textNode = document.createTextNode(' ' + role + ' ');
+                                strongElement.appendChild(textNode);
+                                tr.cells[4].appendChild(strongElement);
+                            } else {
+                                var textNode = document.createTextNode(' ' + role + ' ');
+                                tr.cells[4].appendChild(textNode);
+                            }
+                        });
+                    }
+                });
+
                 $('#user-modal').modal('hide');
             },
             error: function (request, status, error) {
