@@ -75,13 +75,20 @@
             <tbody>
                 <c:forEach var="user" items="${requestScope.users}">
                 <tr>
-                    <td class="tr-username"><c:out value="${user.username}"/></td>
+                    <td><c:out value="${user.username}"/></td>
                     <td><c:out value="${user.firstName}"/></td>
                     <td><c:out value="${user.lastName}"/></td>
                     <td><c:out value="${user.emailAddress}"/></td>
                     <td>
                         <c:forEach var="role" items="${user.roles}">
-                            <c:out value="${role} "/>
+                            <c:choose>
+                                <c:when test="${role eq 'ADMINISTRATOR'}">
+                                    <c:out value="<strong>${role}</strong> " escapeXml="false"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:out value="${role} "/>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </td>
                     <td>
