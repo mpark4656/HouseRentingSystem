@@ -1,6 +1,3 @@
-// Initially hide the success-alert. This element is not to be destroyed as it is repeatedly used on the same page
-document.getElementById('success-alert').style.display = 'none';
-
 document.getElementById('user-create-form').addEventListener('submit', function(e) {
     // Do not submit and cause any redirection
     e.preventDefault();
