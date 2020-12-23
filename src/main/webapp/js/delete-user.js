@@ -1,3 +1,8 @@
+$('.button-delete-user').on('click', function() {
+    let username = $(this).data('username');
+    showUserModal(username, 'delete');
+});
+
 $('#modal-delete-button').on('click', function() {
     let username = $(this).data('username');
 

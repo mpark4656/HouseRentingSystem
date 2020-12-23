@@ -3,16 +3,6 @@ $('.button-view-user').on('click', function() {
     showUserModal(username, 'view');
 });
 
-$('.button-edit-user').on('click', function() {
-    let username = $(this).data('username');
-    showUserModal(username, 'edit');
-});
-
-$('.button-delete-user').on('click', function() {
-    let username = $(this).data('username');
-    showUserModal(username, 'delete');
-});
-
 function showUserModal(username, action) {
     $.ajax({
         url: ctx + '/api/v1/user/find-username/' + username,
