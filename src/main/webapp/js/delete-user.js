@@ -20,7 +20,6 @@ $('#modal-delete-button').on('click', function() {
                 alert(error);
             }
         });
-
-        $('#user-modal').modal('hide');
     }
+    $('#user-modal').modal('hide');
 });
