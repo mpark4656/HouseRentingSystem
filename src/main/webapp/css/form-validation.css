@@ -1,0 +1,8 @@
+.highlight-error-input {
+    border: red 1px solid;
+}
+
+.checkbox-validation-message {
+    color: red;
+    display: none;
+}

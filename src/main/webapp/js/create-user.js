@@ -1,12 +1,13 @@
 // Initially hide the success-alert. This element is not to be destroyed as it is repeatedly used on the same page
 document.getElementById('success-alert').style.display = 'none';
 
-
 document.getElementById('user-create-form').addEventListener('submit', function(e) {
     // Do not submit and cause any redirection
     e.preventDefault();
 
-    // Try using the vanilla javascript for ajax instead of using jQuery for a practice
+    if(!validateForm()) return;
+
+    // Challenge: Try using the vanilla javascript for ajax instead of using jQuery for a practice
     let xhr = new XMLHttpRequest();
     let formData = new FormData(this);
 
@@ -32,3 +33,4 @@ document.getElementById('user-create-form').addEventListener('submit', function(
         }
     };
 });
+
