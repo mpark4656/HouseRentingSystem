@@ -1,3 +1,5 @@
+var userObj = null;
+
 $('.button-view-user').on('click', function() {
     let username = $(this).data('username');
     showUserModal(username, 'view');
@@ -19,24 +21,22 @@ function showUserModal(username, action) {
         type: 'GET',
         contentType: 'application/json',
         success: function(user) {
+            userObj = user;
             populateUserInputs(user);
             setButtonDataAttributes(user.username);
             if(action === 'view') {
-                $('#modal-resetpw-button').hide();
                 $('#modal-submit-button').hide();
                 $('#modal-delete-button').hide();
                 $('#modal-title').text('View User - ' + username);
                 setModalUserInputsReadOnly();
             }
             if(action === 'edit') {
-                $('#modal-resetpw-button').show();
                 $('#modal-submit-button').show();
                 $('#modal-delete-button').hide();
                 $('#modal-title').text('Edit User - ' + username);
                 setModalUserInputEditable();
             }
             if(action === 'delete') {
-                $('#modal-resetpw-button').hide();
                 $('#modal-submit-button').hide();
                 $('#modal-delete-button').show();
                 $('#modal-title').text('Delete User - ' + username);
@@ -50,7 +50,6 @@ function showUserModal(username, action) {
 function setButtonDataAttributes(username) {
     $('#modal-submit-button').data('username', username);
     $('#modal-delete-button').data('username', username);
-    $('#modal-resetpw-button').data('username', username);
 }
 
 function populateUserInputs(user) {
@@ -58,14 +57,9 @@ function populateUserInputs(user) {
     $('#modal-first-name').val(user.firstName);
     $('#modal-last-name').val(user.lastName);
     $('#modal-email').val(user.emailAddress);
-    if(user.owner) $('#modal-user-owner').prop('checked', true);
-    else $('#modal-user-owner').prop('checked', false);
-
-    if(user.administrator) $('#modal-user-administrator').prop('checked', true);
-    else $('#modal-user-administrator').prop('checked', false);
-
-    if(user.customer) $('#modal-user-customer').prop('checked', true);
-    else $('#modal-user-customer').prop('checked', false);
+    $('#modal-user-owner').prop('checked', user.owner);
+    $('#modal-user-administrator').prop('checked', user.administrator);
+    $('#modal-user-customer').prop('checked', user.customer);
 }
 
 function setModalUserInputsReadOnly() {
