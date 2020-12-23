@@ -1,3 +1,8 @@
+$('.button-edit-user').on('click', function() {
+    let username = $(this).data('username');
+    showUserModal(username, 'edit');
+});
+
 $('.button-resetpw-user').on('click', function() {
     let username = $(this).data('username');
 });
