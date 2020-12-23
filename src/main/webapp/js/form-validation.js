@@ -27,9 +27,9 @@ function validateForm() {
 
     // Checkbox Validation
     let checkBoxChecked = false;
-    $('.checkbox-validation').each(i, checkbox) {
+    $('.checkbox-validation').each(function(i, checkbox) {
         if($(checkbox).prop('checked')) checkBoxChecked = true;
-    }
+    });
     if(!checkBoxChecked) result = false;
 
     return result;
