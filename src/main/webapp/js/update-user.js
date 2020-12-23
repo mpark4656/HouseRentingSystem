@@ -7,8 +7,11 @@ $('.button-resetpw-user').on('click', function() {
     let username = $(this).data('username');
 });
 
-$('#modal-submit-button').on('click', function() {
-    let username = $(this).data('username');
+$('#user-modal-form').on('submit', function(e) {
+    // Do not submit and cause any redirection
+    e.preventDefault();
+
+    let username = $('#modal-submit-button').data('username');
     if(username === 'root') {
         alert('The default root account can\'t be edited.');
         $('#user-modal').modal('hide');
