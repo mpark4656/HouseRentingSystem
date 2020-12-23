@@ -50,7 +50,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="modal-resetpw-button" type="button" class="btn btn-warning">Reset Password</button>
                 <button id="modal-submit-button" type="button" class="btn btn-primary">Save changes</button>
                 <button id="modal-delete-button" type="button" class="btn btn-danger">Delete</button>
             </div>
@@ -88,6 +87,7 @@
                     <td>
                         <button data-username="${user.username}" class="btn btn-success button-view-user">View</button>
                         <button data-username="${user.username}" class="btn btn-warning button-edit-user">Edit</button>
+                        <button data-username="${user.username}" class="btn btn-warning button-resetpw-user">Reset Password</button>
                         <button data-username="${user.username}" class="btn btn-danger button-delete-user">Delete</button>
                     </td>
                 </tr>
@@ -97,7 +97,7 @@
     </div>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="view-user.js,delete-user.js" />
+    <jsp:param name="scripts" value="view-user.js,delete-user.js,update-user.js" />
 </jsp:include>
 </body>
 </html>
