@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
-    <jsp:param name="stylesheets" value="form-validation.css" />
+    <jsp:param name="stylesheets" value="form-validation.css,create-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
@@ -45,7 +45,7 @@
                 <input type="password"
                     id="password"
                     name="password"
-                    class="form-control keyup-pw-event-popover password"
+                    class="form-control password-popover-reset password"
                     required>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <input
                     type="password"
                     id="password-confirm"
-                    class="form-control keyup-event-popover password-confirm"
+                    class="form-control password-popover-reset password-confirm"
                     data-toggle="popover"
                     title="Password Confirmation"
                     data-content="Passwords do not match."
@@ -86,7 +86,7 @@
                 type="checkbox"
                 name="user-roles"
                 value="administrator"
-                class="checkbox-change-event">
+                class="checkbox-validation">
             <label for="input-user-administrator">Administrator</label>
         </div>
         <div class="form-check row">
@@ -94,7 +94,7 @@
                 type="checkbox"
                 name="user-roles"
                 value="owner"
-                class="checkbox-change-event">
+                class="checkbox-validation">
             <label for="input-user-owner">Owner</label>
         </div>
         <div class="form-check row">
@@ -102,7 +102,7 @@
                 type="checkbox"
                 name="user-roles"
                 value="customer"
-                class="checkbox-change-event">
+                class="checkbox-validation">
             <label for="input-user-customer">Customer</label>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
