@@ -6,6 +6,7 @@ $('#modal-submit-button').on('click', function() {
     let username = $(this).data('username');
     if(username === 'root') {
         alert('The default root account can\'t be edited.');
+        $('#user-modal').modal('hide');
     } else {
         $.ajax({
             type: 'PUT',
@@ -15,13 +16,13 @@ $('#modal-submit-button').on('click', function() {
             data: JSON.stringify(getUserObj(username)),
             success: function(user) {
                 alert('Success');
+                $('#user-modal').modal('hide');
             },
             error: function (request, status, error) {
                 alert(error);
             }
         });
     }
-    $('#user-modal').modal('hide');
 });
 
 function getUserObj(username) {
@@ -36,6 +37,7 @@ function getUserObj(username) {
         lastName: $('#modal-last-name').val(),
         emailAddress: $('#modal-email').val(),
         owner: $('#modal-user-owner').prop('checked'),
+        password: '6748ca77-423e-47ef-b340-e5315688645c',
         administrator: $('#modal-user-administrator').prop('checked'),
         customer: $('#modal-user-customer').prop('checked'),
         roles: userRoles
