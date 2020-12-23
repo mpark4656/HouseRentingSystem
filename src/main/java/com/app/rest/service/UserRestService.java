@@ -48,7 +48,7 @@ public class UserRestService extends RestService<User> {
 
     @Path("update-user")
     @PUT
-    public Response updateUser(User user) {
+    public Response updateUser(@Valid User user) {
         // Don't trust the user ID coming from the client
         // Use the username to pull the correct id.
         // If username isn't found, reject the request call
