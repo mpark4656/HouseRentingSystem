@@ -7,11 +7,34 @@
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
+<div id="password-reset-modal" class="modal" tabindex="-1" aria-labelledby="password-reset-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="password-reset-modal-label" class="modal-title">Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="password-reset-modal-form" class="validation-form">
+                <div class="modal-body">
+                    <div class="form-group">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="modal-submit-button" type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div id="user-modal" class="modal" tabindex="-1" aria-labelledby="user-modal-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="modal-title" class="modal-title" id="user-modal-label">Modal</h5>
+                <h5 id="user-modal-label" class="modal-title">Modal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -114,7 +137,7 @@
     </div>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="form-validation.js,view-user.js,delete-user.js,update-user.js" />
+    <jsp:param name="scripts" value="form-validation.js,view-user.js,delete-user.js,update-user.js,reset-password.js" />
 </jsp:include>
 </body>
 </html>

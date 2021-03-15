@@ -14,19 +14,19 @@ function showUserModal(username, action) {
             if(action === 'view') {
                 $('#modal-submit-button').hide();
                 $('#modal-delete-button').hide();
-                $('#modal-title').text('View User - ' + username);
+                $('#user-modal-label').text('View User - ' + username);
                 setModalUserInputsReadOnly();
             }
             if(action === 'edit') {
                 $('#modal-submit-button').show();
                 $('#modal-delete-button').hide();
-                $('#modal-title').text('Edit User - ' + username);
+                $('#user-modal-label').text('Edit User - ' + username);
                 setModalUserInputEditable();
             }
             if(action === 'delete') {
                 $('#modal-submit-button').hide();
                 $('#modal-delete-button').show();
-                $('#modal-title').text('Delete User - ' + username);
+                $('#user-modal-label').text('Delete User - ' + username);
                 setModalUserInputsReadOnly();
             }
             $('#user-modal').modal('show');
