@@ -3,7 +3,7 @@ $('.button-delete-user').on('click', function() {
     showUserModal(username, 'delete');
 });
 
-$('#modal-delete-button').on('click', function() {
+$('#user-modal-delete-button').on('click', function() {
     let username = $(this).data('username');
 
     if(username === 'root') {
