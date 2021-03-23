@@ -28,7 +28,13 @@
                     </div>
                     <div class="form-group">
                         <label for="password-reset-modal-password-confirm" class="form-label">Confirm New Password</label>
-                        <input id="password-reset-modal-password-confirm" type="password" class="form-control" required>
+                        <input id="password-reset-modal-password-confirm"
+                            type="password"
+                            class="form-control"
+                            data-toggle="popover"
+                            data-trigger="manual"
+                            title="Passwords don't match"
+                            data-content="Make sure you entered the password correctly." required>
                     </div>
                 </div>
                 <div class="modal-footer">
