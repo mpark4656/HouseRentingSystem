@@ -7,32 +7,72 @@
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
-<div id="user-modal" class="modal" tabindex="-1" aria-labelledby="user-modal-label" aria-hidden="true">
+<div id="password-reset-modal" class="modal" tabindex="-1" aria-labelledby="password-reset-modal-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="modal-title" class="modal-title" id="user-modal-label">Modal</h5>
+                <h5 id="password-reset-modal-label" class="modal-title">Modal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="validation-form">
+            <form id="password-reset-modal-form" class="validation-form">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="modal-username" class="form-label">Username</label>
-                        <input id="modal-username" type="text" class="form-control" readonly required>
+                        <label for="password-reset-modal-username" class="form-label">Username</label>
+                        <input id="password-reset-modal-username" type="text" class="form-control" readonly required>
                     </div>
                     <div class="form-group">
-                        <label for="modal-first-name" class="form-label">First Name</label>
-                        <input id="modal-first-name" type="text" class="form-control" required>
+                        <label for="password-reset-modal-new-password" class="form-label">New Password</label>
+                        <input id="password-reset-modal-new-password" type="password" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="modal-last-name" class="form-label">Last Name</label>
-                        <input id="modal-last-name" type="text" class="form-control" required>
+                        <label for="password-reset-modal-password-confirm" class="form-label">Confirm New Password</label>
+                        <input id="password-reset-modal-password-confirm"
+                            type="password"
+                            class="form-control"
+                            data-toggle="popover"
+                            data-trigger="manual"
+                            title="Passwords don't match"
+                            data-content="Make sure you entered the password correctly." required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="password-reset-modal-submit-button" type="submit" class="btn btn-primary">
+                        Save changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="user-modal" class="modal" tabindex="-1" aria-labelledby="user-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="user-modal-label" class="modal-title">Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="user-modal-form" class="validation-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="user-modal-username" class="form-label">Username</label>
+                        <input id="user-modal-username" type="text" class="form-control" readonly required>
                     </div>
                     <div class="form-group">
-                        <label for="modal-email" class="form-label">E-mail Address</label>
-                        <input id="modal-email" type="email" class="form-control" required>
+                        <label for="user-modal-first-name" class="form-label">First Name</label>
+                        <input id="user-modal-first-name" type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-modal-last-name" class="form-label">Last Name</label>
+                        <input id="user-modal-last-name" type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-modal-email" class="form-label">E-mail Address</label>
+                        <input id="user-modal-email" type="email" class="form-control" required>
                     </div>
                     <span class="checkbox-validation-message">You must select at least one role for this user.</span>
                     <div class="form-check">
@@ -59,8 +99,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="modal-submit-button" type="button" class="btn btn-primary">Save changes</button>
-                    <button id="modal-delete-button" type="button" class="btn btn-danger">Delete</button>
+                    <button id="user-modal-submit-button" type="submit" class="btn btn-primary">Save changes</button>
+                    <button id="user-modal-delete-button" type="button" class="btn btn-danger">Delete</button>
                 </div>
             </form>
         </div>
@@ -114,7 +154,7 @@
     </div>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="form-validation.js,view-user.js,delete-user.js,update-user.js" />
+    <jsp:param name="scripts" value="form-validation.js,view-user.js,delete-user.js,update-user.js,reset-password.js" />
 </jsp:include>
 </body>
 </html>

@@ -7,8 +7,11 @@ $('.button-resetpw-user').on('click', function() {
     let username = $(this).data('username');
 });
 
-$('#modal-submit-button').on('click', function() {
-    let username = $(this).data('username');
+$('#user-modal-form').on('submit', function(e) {
+    // Do not submit and cause any redirection
+    e.preventDefault();
+
+    let username = $('#user-modal-submit-button').data('username');
     if(username === 'root') {
         alert('The default root account can\'t be edited.');
         $('#user-modal').modal('hide');
@@ -60,9 +63,9 @@ function getUserObj(username) {
 
     var userObj = {
         username: username,
-        firstName: $('#modal-first-name').val(),
-        lastName: $('#modal-last-name').val(),
-        emailAddress: $('#modal-email').val(),
+        firstName: $('#user-modal-first-name').val(),
+        lastName: $('#user-modal-last-name').val(),
+        emailAddress: $('#user-modal-email').val(),
         owner: $('#modal-user-owner').prop('checked'),
         password: '6748ca77-423e-47ef-b340-e5315688645c',
         administrator: $('#modal-user-administrator').prop('checked'),
