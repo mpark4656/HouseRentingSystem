@@ -20,6 +20,25 @@ $('#password-reset-modal-form').on('submit', function(e) {
         popOverElement.popover('show');
     } else {
         popOverElement.popover('hide');
+        let username = $('#password-reset-modal-submit-button').data('username');
+        let password = $('#password-reset-modal-new-password').val();
+
+        $.ajax({
+            type: 'POST',
+            url: ctx + '/admin/reset-password',
+            data: {
+                username: username,
+                password: password
+            },
+            success: function() {
+                alert("Success");
+                $('#password-reset-modal').modal('hide');
+            },
+            error: function (request, status, error) {
+                alert(error);
+            }
+        });
+
     }
 });
 
