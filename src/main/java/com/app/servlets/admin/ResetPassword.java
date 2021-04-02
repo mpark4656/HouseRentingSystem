@@ -35,10 +35,8 @@ public class ResetPassword extends HttpServlet {
                 userRepository.update(user);
                 response.setStatus(HttpServletResponse.SC_OK);
             } else {
-                response.sendError(
-                        HttpServletResponse.SC_FORBIDDEN,
-                        "Root account's password cannot be reset"
-                );
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                response.getWriter().write("Root account's password cannot be reset");
             }
         } else {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Not an administrator");
