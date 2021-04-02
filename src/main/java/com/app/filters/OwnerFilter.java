@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName="AdminFilter", urlPatterns={"/admin/*"})
-public class AdminFilter implements Filter {
+@WebFilter(filterName="OwnerFilter", urlPatterns={"/owner/*"})
+public class OwnerFilter implements Filter {
+    @Override
     public void init(FilterConfig config) throws ServletException {}
 
+    @Override
     public void destroy() {}
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException
     {
@@ -30,7 +33,7 @@ public class AdminFilter implements Filter {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                 return;
             } else {
-                if(!user.isAdministrator()) {
+                if(!user.isAdministrator() && !user.isOwner()) {
                     httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
                     return;
                 }
