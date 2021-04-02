@@ -39,8 +39,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="password-reset-modal-submit-button" type="submit" class="btn btn-primary">
-                        Save changes
+                    <button id="password-reset-modal-submit-button" type="submit" class="btn btn-danger">
+                        Reset Password
                     </button>
                 </div>
             </form>
