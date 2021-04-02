@@ -30,15 +30,15 @@ $('#password-reset-modal-form').on('submit', function(e) {
                 username: username,
                 password: password
             },
+            dataType: "xml",
             success: function() {
-                alert("Success");
-                $('#password-reset-modal').modal('hide');
+                alert("Password has been reset");
             },
             error: function (request, status, error) {
-                alert(error);
+                alert(decodeURI(error));
             }
         });
-
+        $('#password-reset-modal').modal('hide');
     }
 });
 

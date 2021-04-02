@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet(urlPatterns={"/admin/reset-password"})
 public class ResetPassword extends HttpServlet {
@@ -29,15 +30,15 @@ public class ResetPassword extends HttpServlet {
         User user = userRepository.findByUsername(username);
 
         if(loggedInUser.isAdministrator()) {
-            if(user.getUsername().equals(UserAuthentication.ROOT_USERNAME)) {
+            if(!user.getUsername().equals(UserAuthentication.ROOT_USERNAME)) {
+                user.setPassword(newPassword);
+                userRepository.update(user);
+                response.setStatus(HttpServletResponse.SC_OK);
+            } else {
                 response.sendError(
                         HttpServletResponse.SC_FORBIDDEN,
                         "Root account's password cannot be reset"
                 );
-            } else {
-                user.setPassword(newPassword);
-                userRepository.update(user);
-                response.setStatus(HttpServletResponse.SC_OK);
             }
         } else {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Not an administrator");
