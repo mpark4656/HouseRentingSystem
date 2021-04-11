@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
-    <jsp:param name="stylesheets" value="form-validation.css,create-user.css" />
+    <jsp:param name="stylesheets" value="form-layout.css,form-validation.css,create-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
