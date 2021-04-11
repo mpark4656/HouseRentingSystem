@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
-    <jsp:param name="stylesheets" value="form-validation.css,create-user.css" />
+    <jsp:param name="stylesheets" value="default.css,form-validation.css,create-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
@@ -32,7 +32,7 @@
     <div class="row justify-content-center">
         <h1>Create New User</h1>
     </div>
-    <form id="user-create-form" class="validation-form">
+    <form id="user-create-form" class="user-form-validation">
         <div class="form-group row">
             <label class="col-md-2 col-form-label" for="username">Username:</label>
             <div class="col-md-10">
@@ -59,7 +59,6 @@
                     data-toggle="popover"
                     title="Password Confirmation"
                     data-content="Passwords do not match."
-                    placeholder="Re-enter Password"
                     required>
             </div>
         </div>
@@ -111,7 +110,7 @@
     </form>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="form-validation.js,create-user.js" />
+    <jsp:param name="scripts" value="user-form-validation.js,create-user.js" />
 </jsp:include>
 </body>
 </html>

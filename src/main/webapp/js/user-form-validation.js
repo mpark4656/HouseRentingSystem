@@ -7,11 +7,11 @@ $('.password-popover-reset').on('keyup', function() {
     resetPasswordConfirmMessages();
 });
 
-$('.validation-form').on('change', '.checkbox-validation', function() {
+$('.user-form-validation').on('change', '.checkbox-validation', function() {
     if(this.checked) resetCheckboxValidationMessages();
 });
 
-$('.validation-form').on('reset', function() {
+$('.user-form-validation').on('reset', function() {
     resetPasswordConfirmMessages();
     resetCheckboxValidationMessages();
 });

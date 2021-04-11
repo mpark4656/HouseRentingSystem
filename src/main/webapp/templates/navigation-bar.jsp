@@ -36,7 +36,8 @@
                        aria-haspopup="true" aria-expanded="false">Owner
                     </a>
                     <div class="dropdown-menu" aria-labelledby="ownerNavbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Create New Posting</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/owner/view-rental">View My Postings</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/owner/create-rental">Create New Posting</a>
                     </div>
                 </li>
             </c:if>
