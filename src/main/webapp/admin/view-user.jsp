@@ -154,7 +154,7 @@
     </div>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="form-validation.js,view-user.js,delete-user.js,update-user.js,reset-password.js" />
+    <jsp:param name="scripts" value="user-form-validation.js,view-user.js,delete-user.js,update-user.js,reset-password.js" />
 </jsp:include>
 </body>
 </html>
