@@ -1,7 +1,6 @@
 package com.app.repositories;
 
 import com.app.entities.User;
-
 import javax.persistence.NoResultException;
 import java.util.List;
 
@@ -33,9 +32,9 @@ public class UserRepository extends Repository<User> {
 
     public boolean emailExists(String email) {
         List<User> users =
-                entityManager.createQuery("SELECT u FROM users u WHERE upper(u.emailAddress) = :email", User.class).
-                        setParameter("email", email.toUpperCase()).
-                        getResultList();
+            entityManager.createQuery("SELECT u FROM users u WHERE upper(u.emailAddress) = :email", User.class).
+                    setParameter("email", email.toUpperCase()).
+                    getResultList();
 
         return !users.isEmpty();
     }
