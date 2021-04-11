@@ -6,3 +6,8 @@
 #main-carousel img {
     border-radius: 25px;
 }
+
+.jumbotron {
+    margin-top: 1em;
+    border-radius: 25px;
+}

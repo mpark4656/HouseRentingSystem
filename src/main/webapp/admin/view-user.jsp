@@ -11,7 +11,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="password-reset-modal-label" class="modal-title">Modal</h5>
+                <h5 id="password-reset-modal-label" class="modal-title">Reset Password</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -51,7 +51,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="user-modal-label" class="modal-title">Modal</h5>
+                <h5 id="user-modal-label" class="modal-title"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -133,10 +133,10 @@
                         <c:forEach var="role" items="${user.roles}">
                             <c:choose>
                                 <c:when test="${role eq 'ADMINISTRATOR'}">
-                                    <c:out value="<strong>${role}</strong> " escapeXml="false"/>
+                                    <c:out value="<strong>${role}</strong><br>" escapeXml="false"/>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:out value="${role} "/>
+                                    <c:out value="${role}<br>" escapeXml="false"/>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
