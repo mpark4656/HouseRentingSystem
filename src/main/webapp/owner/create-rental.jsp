@@ -3,18 +3,15 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Create New Rental Posting" />
-    <jsp:param name="stylesheets" value="form-layout.css,form-validation.css,create-user.css" />
+    <jsp:param name="stylesheets" value="default.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
-<div id="success-alert" class="alert alert-success" role="alert">
-    <p id="alert-message" class="text-center"></p>
-</div>
 <div class="container">
     <div class="row justify-content-center">
         <h1>Create New Rental</h1>
     </div>
-    <form id="rental-create-form" class="validation-form">
+    <form id="rental-create-form">
         <div class="form-group row">
             <label for="num-of-rooms" class="col-md-2 col-form-label">Number of Rooms:</label>
             <div class="col-md-2">
@@ -64,7 +61,7 @@
     </form>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="rental-form-validation.js,create-rental.js" />
+    <jsp:param name="scripts" value="create-rental.js" />
 </jsp:include>
 </body>
 </html>

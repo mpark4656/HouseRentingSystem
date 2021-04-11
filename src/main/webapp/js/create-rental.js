@@ -1,6 +1,5 @@
 $("#rental-create-form").on("submit", function(event) {
     event.preventDefault();
-    alert("Submitted");
 
     $.ajax({
         type: 'POST',
@@ -12,8 +11,8 @@ $("#rental-create-form").on("submit", function(event) {
             description: $("#description").val()
         },
         success: function() {
-            alert("Rental Created");
-
+            alert("Your new rental has been created successfully.");
+            window.location.replace(ctx + '/owner/view-rental');
         },
         error: function (request, status, error) {
             alert(request.responseText);

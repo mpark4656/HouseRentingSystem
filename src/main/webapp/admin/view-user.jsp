@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="View Existing Users" />
-    <jsp:param name="stylesheets" value="form-validation.css,view-user.css" />
+    <jsp:param name="stylesheets" value="default.css,form-validation.css,view-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>

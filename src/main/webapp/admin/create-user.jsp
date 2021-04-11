@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
-    <jsp:param name="stylesheets" value="form-layout.css,form-validation.css,create-user.css" />
+    <jsp:param name="stylesheets" value="default.css,form-validation.css,create-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
@@ -59,7 +59,6 @@
                     data-toggle="popover"
                     title="Password Confirmation"
                     data-content="Passwords do not match."
-                    placeholder="Re-enter Password"
                     required>
             </div>
         </div>

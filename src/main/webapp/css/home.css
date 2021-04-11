@@ -11,3 +11,7 @@
     margin-top: 1em;
     border-radius: 25px;
 }
+
+.jumbotron h1 {
+    margin: 0;
+}
