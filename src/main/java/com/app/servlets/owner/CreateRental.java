@@ -42,11 +42,6 @@ public class CreateRental extends HttpServlet {
                 Rental rental = new Rental(rent, description, house);
                 rentalRepository.create(rental);
                 response.setStatus(HttpServletResponse.SC_OK);
-
-                List<Rental> rentals = rentalRepository.getRentalsByUser(user);
-                for(Rental eachRental : rentals) {
-                    System.out.println(eachRental.getDateAdded());
-                }
             }
         } catch(NumberFormatException e) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
