@@ -12,7 +12,7 @@
 </div>
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Create New Rental Posting</h1>
+        <h1>Create New Rental</h1>
     </div>
     <form id="rental-create-form" class="validation-form">
 
