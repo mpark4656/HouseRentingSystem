@@ -32,7 +32,7 @@
                     <td><c:out value="${rental.house.numOfRooms}"/></td>
                     <td><c:out value="${rental.house.locality}"/></td>
                     <td><c:out value='${String.format("$%.2f",rental.rent)}'/></td>
-                    <td><textarea><c:out value="${rental.description}"/></textarea></td>
+                    <td><textarea readonly><c:out value="${rental.description}"/></textarea></td>
                     <td class="no-wrap">
                         <button data-rental-id="${rental.id}" class="btn btn-success button-view-rental">View</button>
                         <button data-rental-id="${rental.id}" class="btn btn-warning button-edit-rental">Edit</button>
