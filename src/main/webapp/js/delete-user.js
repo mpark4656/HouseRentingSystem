@@ -11,20 +11,22 @@ $('#user-modal-delete-button').on('click', function() {
         $('#user-modal').modal('hide');
     } else {
         $.ajax({
-            type: 'DELETE',
-            url: ctx + '/api/v1/user/delete-by-username?username=' + username,
-            contentType: 'application/json',
-            success: function(user) {
-                alert(user.username + ' has been successfully removed.');
+            type: 'POST',
+            url: ctx + '/admin/delete-user',
+            data: {
+                username: username
+            },
+            success: function() {
+                alert(username + ' has been successfully removed.');
                 $('#user-table tbody tr').each(function(i, tr) {
-                    if(tr.cells[0].innerText === user.username) {
+                    if(tr.cells[0].innerText === username) {
                         tr.remove();
                     }
                 });
                 $('#user-modal').modal('hide');
             },
             error: function (request, status, error) {
-                alert(error);
+                alert(request.responseText);
             }
         });
     }
