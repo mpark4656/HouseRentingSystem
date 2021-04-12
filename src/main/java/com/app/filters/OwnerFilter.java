@@ -33,7 +33,7 @@ public class OwnerFilter implements Filter {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                 return;
             } else {
-                if(!user.isAdministrator() && !user.isOwner()) {
+                if(!user.isOwner()) {
                     httpResponse.sendRedirect(httpRequest.getContextPath() + "/home");
                     return;
                 }

@@ -23,7 +23,7 @@ public class ViewRental extends HttpServlet {
             throws ServletException, IOException {
         User user = (User) request.getSession(false).getAttribute("user");
 
-        if(user.isOwner() || user.isAdministrator()) {
+        if(user.isOwner()) {
             List<Rental> rentals = rentalRepository.getRentalsByUser(user);
             request.setAttribute("rentals", rentals);
             request.setAttribute(
@@ -32,7 +32,7 @@ public class ViewRental extends HttpServlet {
             request.getRequestDispatcher("/owner/view-rental.jsp").forward(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.getWriter().write("Must be owner or administrator to view rentals");
+            response.getWriter().write("Must be owner to view the rentals");
         }
     }
 }
