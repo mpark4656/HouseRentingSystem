@@ -14,10 +14,10 @@
             <c:if test="${sessionScope.user.administrator}">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
-                       href="#" id="customerNavbarDropdownMenuLink" data-toggle="dropdown"
+                       href="#" id="adminNavbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Administrator
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="customerNavbarDropdownMenuLink">
+                    <div class="dropdown-menu" aria-labelledby="adminNavbarDropdownMenuLink">
                         <a class="dropdown-item"
                             href="${pageContext.request.contextPath}/admin/view-user">
                             View Users
@@ -44,11 +44,11 @@
             <c:if test="${sessionScope.user.customer}">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
-                       href="#" id="adminNavbarDropdownMenuLink" data-toggle="dropdown"
+                       href="#" id="customerNavbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Customer
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="adminNavbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Browse Postings</a>
+                    <div class="dropdown-menu" aria-labelledby="customerNavbarDropdownMenuLink">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/customer/browse-rental">Browse Postings</a>
                     </div>
                 </li>
             </c:if>
