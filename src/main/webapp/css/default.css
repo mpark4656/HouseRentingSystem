@@ -6,3 +6,7 @@ h1 {
 body {
     font-family: 'Maven Pro', sans-serif;
 }
+
+.no-wrap {
+    white-space:nowrap;
+}

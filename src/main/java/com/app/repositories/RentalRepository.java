@@ -30,4 +30,11 @@ public class RentalRepository extends Repository<Rental> {
                     Rental.class).setParameter("user", user).getResultList();
         } else return null;
     }
+
+    public List<Rental> getAllAvailableRentals() {
+        return entityManager.createQuery(
+            "SELECT r FROM rentals r WHERE r.customer IS NULL",
+                Rental.class
+        ).getResultList();
+    }
 }
