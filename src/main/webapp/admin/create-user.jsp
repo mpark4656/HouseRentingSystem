@@ -25,8 +25,8 @@
         </div>
     </div>
 </div>
-<div id="success-alert" class="alert alert-success" role="alert">
-    <p id="alert-message" class="text-center"></p>
+<div id="success-alert" class="alert alert-success text-center" role="alert">
+    <span id="alert-message"></span>
 </div>
 <div class="container">
     <div class="row justify-content-center">
