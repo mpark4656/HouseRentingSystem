@@ -3,6 +3,8 @@ package com.app.servlets.admin;
 import com.app.entities.Role;
 import com.app.entities.User;
 import com.app.repositories.UserRepository;
+import com.app.security.PasswordHash;
+
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -17,7 +19,10 @@ import java.util.HashSet;
 @MultipartConfig
 public class CreateUser extends HttpServlet {
     @Inject
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Inject
+    private PasswordHash passwordHash;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,6 +47,7 @@ public class CreateUser extends HttpServlet {
                 return;
             }
 
+            user.setPassword(passwordHash.hash(user.getPassword()));
             userRepository.create(user);
             response.setStatus(HttpServletResponse.SC_OK);
         } catch(Exception e) {

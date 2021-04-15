@@ -2,6 +2,7 @@ package com.app.servlets.admin;
 
 import com.app.entities.User;
 import com.app.repositories.UserRepository;
+import com.app.security.PasswordHash;
 import com.app.security.UserAuthentication;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -17,6 +18,9 @@ public class ResetPassword extends HttpServlet {
     @Inject
     private UserRepository userRepository;
 
+    @Inject
+    private PasswordHash passwordHash;
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,7 +28,7 @@ public class ResetPassword extends HttpServlet {
         HttpSession session = request.getSession(false);
         User loggedInUser = (User) session.getAttribute("user");
         String username = request.getParameter("username");
-        String newPassword = request.getParameter("password");
+        String newPassword = passwordHash.hash(request.getParameter("password"));
         User user = userRepository.findByUsername(username);
 
         if(loggedInUser.isAdministrator()) {

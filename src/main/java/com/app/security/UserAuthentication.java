@@ -42,7 +42,7 @@ public class UserAuthentication {
             roleSet.add(Role.CUSTOMER);
             roleSet.add(Role.OWNER);
 
-            User user =  new User(
+            User user = new User(
                     ROOT_USERNAME,
                     passwordHash.hash(ROOT_PASSWORD),
                     roleSet,

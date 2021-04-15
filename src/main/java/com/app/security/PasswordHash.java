@@ -13,7 +13,7 @@ public class PasswordHash {
     private SecretKeyFactory factory;
     private int iterations;
     private int keyLength;
-    private byte[] salt = "".getBytes();
+    private byte[] salt;
 
     public PasswordHash() {
         try {
