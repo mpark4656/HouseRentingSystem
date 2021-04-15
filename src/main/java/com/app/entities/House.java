@@ -11,7 +11,7 @@ public class House {
     private int id;
 
     @JoinColumn(name = "owner_id", nullable = false)
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     private User owner;
 
     @Min(0)

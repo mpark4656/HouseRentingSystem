@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(urlPatterns = {"/owner/create-rental"})
 public class CreateRental extends HttpServlet {
@@ -30,9 +29,9 @@ public class CreateRental extends HttpServlet {
         try {
             User user = (User) request.getSession(false).getAttribute("user");
 
-            if(!user.isAdministrator() && !user.isOwner()) {
+            if(!user.isOwner()) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.getWriter().write("User must be administrator or owner");
+                response.getWriter().write("User must be an owner");
             } else {
                 int numOfRooms = Integer.parseInt(request.getParameter("numOfRooms"));
                 double rent = Double.parseDouble(request.getParameter("rent"));

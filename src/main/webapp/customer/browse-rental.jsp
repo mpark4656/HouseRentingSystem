@@ -9,7 +9,7 @@
 <jsp:include page="/templates/navigation-bar.jsp"/>
 <div class="container">
     <div class="row justify-content-center">
-        <h1>My Rental Posting</h1>
+        <h1>Browse Available Rentals</h1>
     </div>
     <div class="table-responsive">
         <table id="rental-table" class="table table-bordered">
@@ -34,9 +34,7 @@
                     <td><c:out value='${String.format("$%.2f",rental.rent)}'/></td>
                     <td><textarea readonly><c:out value="${rental.description}"/></textarea></td>
                     <td class="no-wrap">
-                        <button data-rental-id="${rental.id}" class="btn btn-success button-view-rental">View</button>
-                        <button data-rental-id="${rental.id}" class="btn btn-warning button-edit-rental">Edit</button>
-                        <button data-rental-id="${rental.id}" class="btn btn-danger button-delete-rental">Delete</button>
+                        <button data-rental-id="${rental.id}" class="btn btn-success button-view-rental">Rent</button>
                     </td>
                 </tr>
                 </c:forEach>

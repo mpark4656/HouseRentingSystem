@@ -35,13 +35,14 @@ $('#user-modal-form').on('submit', function(e) {
                         user.roles.forEach(function(role, i) {
                             if(role === 'ADMINISTRATOR') {
                                 var strongElement = document.createElement('strong');
-                                var textNode = document.createTextNode(' ' + role + ' ');
+                                var textNode = document.createTextNode(role);
                                 strongElement.appendChild(textNode);
                                 tr.cells[4].appendChild(strongElement);
                             } else {
-                                var textNode = document.createTextNode(' ' + role + ' ');
+                                var textNode = document.createTextNode(role);
                                 tr.cells[4].appendChild(textNode);
                             }
+                            tr.cells[4].appendChild(document.createElement('br'));
                         });
                     }
                 });

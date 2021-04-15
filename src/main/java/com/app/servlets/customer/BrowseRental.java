@@ -1,8 +1,8 @@
-package com.app.servlets.owner;
+package com.app.servlets.customer;
 
-import com.app.entities.Rental;
 import com.app.entities.User;
 import com.app.repositories.RentalRepository;
+import com.app.repositories.UserRepository;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,28 +11,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
-@WebServlet(urlPatterns = {"/owner/view-rental"})
-public class ViewRental extends HttpServlet {
+@WebServlet(urlPatterns = {"/customer/browse-rental"})
+public class BrowseRental extends HttpServlet {
     @Inject
-    private RentalRepository rentalRepository;
+    RentalRepository rentalRepository;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = (User) request.getSession(false).getAttribute("user");
+        User loggedInUser = (User) request.getSession(false).getAttribute("user");
 
-        if(user.isOwner()) {
-            List<Rental> rentals = rentalRepository.getRentalsByUser(user);
-            request.setAttribute("rentals", rentals);
+        if(loggedInUser.isCustomer()) {
+            request.setAttribute("rentals", rentalRepository.getAllAvailableRentals());
             request.setAttribute(
                     "dateTimeFormatter",
                     DateTimeFormatter.ofPattern("MM-dd-yyyy hh:mm a"));
-            request.getRequestDispatcher("/owner/view-rental.jsp").forward(request, response);
+            request.getRequestDispatcher("/customer/browse-rental.jsp").forward(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.getWriter().write("Must be owner to view the rentals");
         }
     }
 }

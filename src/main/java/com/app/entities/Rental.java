@@ -23,7 +23,7 @@ public class Rental {
     @Column
     private String description;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "house_id", nullable = false)
     private House house;
 
