@@ -1,10 +1,22 @@
 package com.app.repositories;
 
 import com.app.entities.User;
+import com.app.security.PasswordHash;
+import javax.inject.Inject;
 import javax.persistence.NoResultException;
 import java.util.List;
 
 public class UserRepository extends Repository<User> {
+    @Inject
+    private PasswordHash passwordHash;
+
+    @Override
+    public User create(User user) {
+        user.setPassword(passwordHash.hash(user.getPassword()));
+        entityManager.persist(user);
+        return user;
+    }
+
     public User find(int id) {
         return entityManager.find(User.class, id);
     }
