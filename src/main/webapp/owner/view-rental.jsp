@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="View My Rental Postings" />
-    <jsp:param name="stylesheets" value="default.css,view-rental.css" />
+    <jsp:param name="stylesheets" value="default.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>

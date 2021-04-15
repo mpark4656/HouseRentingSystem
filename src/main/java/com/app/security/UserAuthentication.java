@@ -13,6 +13,9 @@ public class UserAuthentication {
     @Inject
     private UserRepository userRepository;
 
+    @Inject
+    private PasswordHash passwordHash;
+
     public static final String ROOT_USERNAME = "root";
     private static final String ROOT_PASSWORD = "password";
     private static final String ROOT_EMAIL = "root@app.com";
@@ -27,7 +30,7 @@ public class UserAuthentication {
         }
 
         User user = userRepository.findByUsername(username);
-        if(user != null && user.getPassword().equals(password)) return user;
+        if(user != null && user.getPassword().equals(passwordHash.hash(password))) return user;
 
         return null;
     }
@@ -41,7 +44,7 @@ public class UserAuthentication {
 
             User user =  new User(
                     ROOT_USERNAME,
-                    ROOT_PASSWORD,
+                    passwordHash.hash(ROOT_PASSWORD),
                     roleSet,
                     "ROOT",
                     "ADMIN",
