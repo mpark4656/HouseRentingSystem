@@ -108,7 +108,8 @@
         <button type="submit" class="btn btn-primary">Create</button>
         <button type="reset" class="btn btn-warning">Reset</button>
     </form>
-<div>
+</div>
+<jsp:include page="/templates/footer.jsp"/>
 <jsp:include page="/templates/scripts.jsp">
     <jsp:param name="scripts" value="user-form-validation.js,create-user.js" />
 </jsp:include>

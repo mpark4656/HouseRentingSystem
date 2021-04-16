@@ -53,7 +53,6 @@
             <h1 class="display-4">House Rental System</h1>
             <p class="lead">
                 This is a demo system that implements the below problem description.
-                Created by Michael Park
             </p>
             <hr class="my-4">
             <p>
@@ -74,6 +73,7 @@
                role="button">Learn more</a>
         </div>
     </div>
+    <jsp:include page="/templates/footer.jsp"/>
     <jsp:include page="/templates/scripts.jsp"/>
 </body>
 </html>
