@@ -1,0 +1,54 @@
+footer {
+    background-color: #292b2c;
+    color: white;
+    height: 20vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1em;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+}
+
+i {
+    color: white;
+    margin: 5px;
+}
+
+.linkedin-link, .email-link, .phone-link {
+    border: 1px transparent solid;
+}
+
+.linkedin-link, .profile-link, .email-link, .phone-link {
+    margin: 5px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.profile-link {
+    background-color: #292b2c;
+    border: 2px white solid;
+}
+
+.email-link {
+    background-color: #429bf5;
+}
+
+.phone-link {
+    background-color: #429bf5;
+}
+
+.linkedin-link {
+    background-color: #2867B2;
+}
+
+.linkedin-link:hover, .profile-link:hover, .email-link:hover, .phone-link:hover {
+    padding: 10px;
+}

@@ -1,12 +1,20 @@
 h1 {
     margin: 1em 0;
     font-family: 'Open Sans', sans-serif;
+    text-align: center;
 }
 
 body {
     font-family: 'Maven Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .no-wrap {
     white-space:nowrap;
+}
+
+.container {
+    flex-grow: 1;
 }

@@ -40,7 +40,9 @@
                 </c:forEach>
             </tbody>
         </table>
-    <div>
+    </div>
+</div>
+<jsp:include page="/templates/footer.jsp"/>
 <jsp:include page="/templates/scripts.jsp">
     <jsp:param name="scripts" value="" />
 </jsp:include>

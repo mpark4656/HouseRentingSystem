@@ -12,6 +12,7 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
         crossorigin="anonymous">
 </script>
+<script src="https://kit.fontawesome.com/8d95f8aabd.js" crossorigin="anonymous"></script>
 <script>var ctx = "<%=request.getContextPath()%>"</script>
 <c:if test="${not empty param.scripts}">
     <c:set var="scripts" value="${fn:split(param.scripts,',')}" />
