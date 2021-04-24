@@ -23,5 +23,4 @@ public class ViewUser extends HttpServlet {
         request.setAttribute("users", users);
         request.getRequestDispatcher("/admin/view-user.jsp").forward(request, response);
     }
-
 }
