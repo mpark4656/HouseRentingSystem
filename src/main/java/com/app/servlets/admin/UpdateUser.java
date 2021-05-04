@@ -20,7 +20,17 @@ public class UpdateUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        User user = getUser(request);
+        try {
+            userRepository.update(user);
+            response.setStatus(HttpServletResponse.SC_OK);
+        } catch(Exception e) {
+            System.err.println(e.getMessage());
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
+    }
 
+    private User getUser(HttpServletRequest request) {
         String username = request.getParameter("username");
         String firstName = request.getParameter("firstName").toUpperCase();
         String lastName = request.getParameter("lastName").toUpperCase();
@@ -40,12 +50,6 @@ public class UpdateUser extends HttpServlet {
         user.setEmailAddress(emailAddress);
         user.setRoles(userRoles);
 
-        try {
-            userRepository.update(user);
-            response.setStatus(HttpServletResponse.SC_OK);
-        } catch(Exception e) {
-            System.err.println(e.getMessage());
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-        }
+        return user;
     }
 }
