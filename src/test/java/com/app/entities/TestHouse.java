@@ -2,6 +2,7 @@ package com.app.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -75,4 +76,74 @@ public class TestHouse {
         assertEquals(localityThree, parameterizedHouseThree.getLocality());
     }
 
+    @Test
+    @DisplayName("ID Getter Testing")
+    void testGetId() {
+        assertEquals(idOne, defaultHouse.getId());
+        assertEquals(idOne, parameterizedHouseOne.getId());
+        assertEquals(idTwo, parameterizedHouseTwo.getId());
+        assertEquals(idThree, parameterizedHouseThree.getId());
+    }
+
+    @Test
+    @DisplayName("ID Setter Testing")
+    void testSetId() {
+        defaultHouse.setId(idThree);
+        parameterizedHouseOne.setId(idTwo);
+        parameterizedHouseTwo.setId(idOne);
+        parameterizedHouseThree.setId(idOne);
+
+        assertEquals(idThree, defaultHouse.getId());
+        assertEquals(idTwo, parameterizedHouseOne.getId());
+        assertEquals(idOne, parameterizedHouseTwo.getId());
+        assertEquals(idOne, parameterizedHouseThree.getId());
+    }
+
+    @Test
+    @DisplayName("Owner Getter Testing")
+    void testGetOwner() {
+        fail("Not implemented");
+    }
+
+    @Test
+    @DisplayName("Owner Setter Testing")
+    void testSetOwner() {
+        fail("Not implemented");
+    }
+
+    @Test
+    @DisplayName("Number of Rooms Getter Testing")
+    void testGetNumOfRooms() {
+        fail("Not implemented");
+    }
+
+    @Test
+    @DisplayName("Number of Rooms Setter Testing")
+    void testSetNumOfRooms() {
+        fail("Not implemented");
+    }
+
+    @Test
+    @DisplayName("Locality Getter Testing")
+    void testGetLocality() {
+        fail("Not implemented");
+    }
+
+    @Test
+    @DisplayName("Locality Setter Testing")
+    void testSetLocality() {
+        fail("Not implemented");
+    }
+
+    @Test
+    @DisplayName("HashCode Testing")
+    void testGetHashCode() {
+        fail("Not implemented");
+    }
+
+    @Test
+    @DisplayName("Equals Testing")
+    void testEquals() {
+        fail("Not implemented");
+    }
 }
