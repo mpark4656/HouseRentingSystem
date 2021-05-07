@@ -1,6 +1,7 @@
 package com.app.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
@@ -102,43 +103,77 @@ public class TestHouse {
     @Test
     @DisplayName("Owner Getter Testing")
     void testGetOwner() {
-        fail("Not implemented");
+        assertNull(defaultHouse.getOwner());
+        assertEquals(parameterizedHouseOne.getOwner(), ownerOne);
+        assertEquals(parameterizedHouseTwo.getOwner(), ownerTwo);
+        assertEquals(parameterizedHouseThree.getOwner(), ownerThree);
     }
 
     @Test
     @DisplayName("Owner Setter Testing")
     void testSetOwner() {
-        fail("Not implemented");
+        defaultHouse.setOwner(ownerOne);
+        parameterizedHouseOne.setOwner(ownerThree);
+        parameterizedHouseTwo.setOwner(ownerTwo);
+        parameterizedHouseThree.setOwner(ownerOne);
+
+        assertEquals(defaultHouse.getOwner(), ownerOne);
+        assertEquals(parameterizedHouseOne.getOwner(), ownerThree);
+        assertEquals(parameterizedHouseTwo.getOwner(), ownerTwo);
+        assertEquals(parameterizedHouseThree.getOwner(), ownerOne);
     }
 
     @Test
     @DisplayName("Number of Rooms Getter Testing")
     void testGetNumOfRooms() {
-        fail("Not implemented");
+        assertEquals(defaultHouse.getNumOfRooms(), 1);
+        assertEquals(parameterizedHouseOne.getNumOfRooms(), numOfRoomsOne);
+        assertEquals(parameterizedHouseTwo.getNumOfRooms(), numOfRoomsTwo);
+        assertEquals(parameterizedHouseThree.getNumOfRooms(), numOfRoomsThree);
     }
 
     @Test
     @DisplayName("Number of Rooms Setter Testing")
     void testSetNumOfRooms() {
-        fail("Not implemented");
+        defaultHouse.setNumOfRooms(numOfRoomsThree);
+        parameterizedHouseOne.setNumOfRooms(numOfRoomsThree);
+        parameterizedHouseTwo.setNumOfRooms(numOfRoomsTwo);
+        parameterizedHouseThree.setNumOfRooms(numOfRoomsOne);
+
+        assertEquals(defaultHouse.getNumOfRooms(), numOfRoomsThree);
+        assertEquals(parameterizedHouseOne.getNumOfRooms(), numOfRoomsThree);
+        assertEquals(parameterizedHouseTwo.getNumOfRooms(), numOfRoomsTwo);
+        assertEquals(parameterizedHouseThree.getNumOfRooms(), numOfRoomsOne);
     }
 
     @Test
     @DisplayName("Locality Getter Testing")
     void testGetLocality() {
-        fail("Not implemented");
+        assertNull(defaultHouse.getLocality());
+        assertEquals(parameterizedHouseOne.getLocality(), localityOne);
+        assertEquals(parameterizedHouseTwo.getLocality(), localityTwo);
+        assertEquals(parameterizedHouseThree.getLocality(), localityThree);
     }
 
     @Test
     @DisplayName("Locality Setter Testing")
     void testSetLocality() {
-        fail("Not implemented");
+        defaultHouse.setLocality(localityThree);
+        parameterizedHouseOne.setLocality(localityThree);
+        parameterizedHouseTwo.setLocality(localityTwo);
+        parameterizedHouseThree.setLocality(localityOne);
+
+        assertEquals(defaultHouse.getLocality(), localityThree);
+        assertEquals(parameterizedHouseOne.getLocality(), localityThree);
+        assertEquals(parameterizedHouseTwo.getLocality(), localityTwo);
+        assertEquals(parameterizedHouseThree.getLocality(), localityOne);
     }
 
     @Test
     @DisplayName("HashCode Testing")
     void testGetHashCode() {
-        fail("Not implemented");
+        assertNotEquals(defaultHouse, parameterizedHouseThree);
+        // TODO needs more work
     }
 
     @Test
