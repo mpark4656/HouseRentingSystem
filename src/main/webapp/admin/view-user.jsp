@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="View Existing Users" />
-    <jsp:param name="stylesheets" value="default.css,form-validation.css,view-user.css" />
+    <jsp:param name="stylesheets" value="default.css,form-validation.css,admin/view-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
@@ -16,7 +16,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="password-reset-modal-form" class="validation-form">
+            <form id="password-reset-modal-form">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="password-reset-modal-username" class="form-label">Username</label>
@@ -56,7 +56,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="user-modal-form" class="validation-form">
+            <form id="user-modal-form" class="user-form-validation">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="user-modal-username" class="form-label">Username</label>
@@ -155,7 +155,7 @@
 </div>
 <jsp:include page="/templates/footer.jsp"/>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="user-form-validation.js,view-user.js,delete-user.js,update-user.js,reset-password.js" />
+    <jsp:param name="scripts" value="admin/user-form-validation.js,admin/view-user.js,admin/delete-user.js,admin/update-user.js,admin/reset-password.js" />
 </jsp:include>
 </body>
 </html>

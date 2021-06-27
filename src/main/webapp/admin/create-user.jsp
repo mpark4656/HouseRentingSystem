@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="Create New User" />
-    <jsp:param name="stylesheets" value="default.css,form-validation.css,create-user.css" />
+    <jsp:param name="stylesheets" value="default.css,form-validation.css,admin/create-user.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
@@ -111,7 +111,7 @@
 </div>
 <jsp:include page="/templates/footer.jsp"/>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="user-form-validation.js,create-user.js" />
+    <jsp:param name="scripts" value="admin/user-form-validation.js,admin/create-user.js" />
 </jsp:include>
 </body>
 </html>

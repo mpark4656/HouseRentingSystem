@@ -3,10 +3,51 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="View My Rental Postings" />
-    <jsp:param name="stylesheets" value="default.css" />
+    <jsp:param name="stylesheets" value="default.css,owner/view-rental.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
+<div id="rental-modal" class="modal" tabindex="-1" aria-labelledby="rental-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="rental-modal-label" class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="rental-modal-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="rental-modal-owner" class="form-label">Owner Username</label>
+                        <input id="rental-modal-owner" type="text" class="form-control" required disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="rental-modal-num-of-rooms" class="form-label">Number of Rooms</label>
+                        <input id="rental-modal-num-of-rooms" type="number" class="form-control" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rental-modal-rent" class="form-label">Rent ($)</label>
+                        <input id="rental-modal-rent" type="number" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rental-modal-locality" class="form-label">Locality</label>
+                        <input id="rental-modal-locality" type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rental-modal-description" class="form-label">Description</label>
+                        <textarea id="rental-modal-description" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="rental-modal-submit-button" type="submit" class="btn btn-primary">Save changes</button>
+                    <button id="rental-modal-delete-button" type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <h1>My Rental Posting</h1>
@@ -32,7 +73,7 @@
                     <td><c:out value="${rental.house.numOfRooms}"/></td>
                     <td><c:out value="${rental.house.locality}"/></td>
                     <td><c:out value='${String.format("$%.2f",rental.rent)}'/></td>
-                    <td><textarea readonly><c:out value="${rental.description}"/></textarea></td>
+                    <td><textarea><c:out value="${rental.description}"/></textarea></td>
                     <td class="no-wrap">
                         <button data-rental-id="${rental.id}" class="btn btn-success button-view-rental">View</button>
                         <button data-rental-id="${rental.id}" class="btn btn-warning button-edit-rental">Edit</button>
@@ -44,9 +85,8 @@
         </table>
     </div>
 </div>
-<jsp:include page="/templates/footer.jsp"/>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="" />
+    <jsp:param name="scripts" value="owner/view-rental.js,owner/delete-rental.js" />
 </jsp:include>
 </body>
 </html>

@@ -20,15 +20,13 @@ public abstract class Repository<T> {
     }
 
     public T delete(T t) {
-        entityManager.remove(attach(t));
+        entityManager.remove(update(t));
         return t;
     }
 
     public T deleteById(int id) {
         return delete(find(id));
     }
-
-    abstract public T attach(T t);
 
     abstract public T find(int id);
 
