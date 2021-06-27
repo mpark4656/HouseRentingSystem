@@ -1,34 +1,8 @@
-$('.button-delete-rental').on('click', function(event) {
+$('.button-view-rental').on('click', function(event) {
     let rentalId = $(event.target).data('rental-id');
-    showRentalModal(rentalId, 'delete');
+    showRentalModal(rentalId, 'view');
 });
 
-$('#rental-modal-delete-button').on('click', function() {
-    let rentalId = $(this).data('rental-id');
-
-    $.ajax({
-        type: 'POST',
-        url: ctx + '/owner/delete-rental',
-        data: {
-            'rental-id': rentalId
-        },
-        success: function(returnedId) {
-            alert(`Rental ID ${returnedId} has been successfully removed.`);
-            $('#rental-table tbody tr').each(function(i, tr) {
-                let id = $(tr).find('button').first().data('rental-id');
-                if(id == returnedId) {
-                    tr.remove();
-                }
-            });
-            $('#rental-modal').modal('hide');
-        },
-        error: function (request, status, error) {
-            alert(error);
-        }
-    });
-});
-
-// TODO Move these to the view-rental.js in the future
 function showRentalModal(rentalId, action) {
     $.ajax({
         url: ctx + '/api/v1/rental/get/' + rentalId,
@@ -74,7 +48,6 @@ function populateRentalInputs(rental) {
 }
 
 function setModalRentalInputsReadOnly(readonly) {
-    $('rental-modal-owner').prop('disabled', true);
     $('#rental-modal-num-of-rooms').prop('readonly', readonly);
     $('#rental-modal-rent').prop('readonly', readonly);
     $('#rental-modal-locality').prop('readonly', readonly);

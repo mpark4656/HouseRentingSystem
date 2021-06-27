@@ -15,19 +15,19 @@ function showUserModal(username, action) {
                 $('#user-modal-submit-button').hide();
                 $('#user-modal-delete-button').hide();
                 $('#user-modal-label').text('View User - ' + username);
-                setModalUserInputsReadOnly();
+                setModalUserInputsReadOnly(true);
             }
             if(action === 'edit') {
                 $('#user-modal-submit-button').show();
                 $('#user-modal-delete-button').hide();
                 $('#user-modal-label').text('Edit User - ' + username);
-                setModalUserInputEditable();
+                setModalUserInputsReadOnly(false);
             }
             if(action === 'delete') {
                 $('#user-modal-submit-button').hide();
                 $('#user-modal-delete-button').show();
                 $('#user-modal-label').text('Delete User - ' + username);
-                setModalUserInputsReadOnly();
+                setModalUserInputsReadOnly(true);
             }
             $('#user-modal').modal('show');
         }
@@ -49,20 +49,11 @@ function populateUserInputs(user) {
     $('#modal-user-customer').prop('checked', user.customer);
 }
 
-function setModalUserInputsReadOnly() {
-    $('#user-modal-first-name').prop('readonly', true);
-    $('#user-modal-last-name').prop('readonly', true);
-    $('#user-modal-email').prop('readonly', true);
-    $('#modal-user-administrator').prop('disabled', true);
-    $('#modal-user-owner').prop('disabled', true);
-    $('#modal-user-customer').prop('disabled', true);
-}
-
-function setModalUserInputEditable() {
-    $('#user-modal-first-name').prop('readonly', false);
-    $('#user-modal-last-name').prop('readonly', false);
-    $('#user-modal-email').prop('readonly', false);
-    $('#modal-user-administrator').prop('disabled', false);
-    $('#modal-user-owner').prop('disabled', false);
-    $('#modal-user-customer').prop('disabled', false);
+function setModalUserInputsReadOnly(readonly) {
+    $('#user-modal-first-name').prop('readonly', readonly);
+    $('#user-modal-last-name').prop('readonly', readonly);
+    $('#user-modal-email').prop('readonly', readonly);
+    $('#modal-user-administrator').prop('disabled', readonly);
+    $('#modal-user-owner').prop('disabled', readonly);
+    $('#modal-user-customer').prop('disabled', readonly);
 }
