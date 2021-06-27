@@ -61,7 +61,7 @@
     </form>
 <div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="create-rental.js" />
+    <jsp:param name="scripts" value="owner/create-rental.js" />
 </jsp:include>
 </body>
 </html>

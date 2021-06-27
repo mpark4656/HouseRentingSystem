@@ -3,7 +3,7 @@
 <html lang="en">
 <jsp:include page="/templates/head.jsp">
     <jsp:param name="title" value="View My Rental Postings" />
-    <jsp:param name="stylesheets" value="default.css,view-rental.css" />
+    <jsp:param name="stylesheets" value="default.css,owner/view-rental.css" />
 </jsp:include>
 <body>
 <jsp:include page="/templates/navigation-bar.jsp"/>
@@ -16,11 +16,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="rental-modal-form" class="validation-form">
+            <form id="rental-modal-form">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="rental-modal-owner" class="form-label">Owner Username</label>
-                        <input id="rental-modal-owner" type="text" class="form-control" required>
+                        <input id="rental-modal-owner" type="text" class="form-control" required disabled>
                     </div>
                     <div class="form-group">
                         <label for="rental-modal-num-of-rooms" class="form-label">Number of Rooms</label>
@@ -86,7 +86,7 @@
     </div>
 </div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="delete-rental.js" />
+    <jsp:param name="scripts" value="owner/delete-rental.js" />
 </jsp:include>
 </body>
 </html>
