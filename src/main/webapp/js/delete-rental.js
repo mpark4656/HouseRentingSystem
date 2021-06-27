@@ -6,16 +6,17 @@ $('.button-delete-rental').on('click', function(event) {
 $('#rental-modal-delete-button').on('click', function() {
     let rentalId = $(this).data('rental-id');
 
-    // TODO Convert this to servlet
     $.ajax({
-        type: 'DELETE',
-        url: ctx + '/api/v1/rental/delete/' + rentalId,
-        contentType: 'application/json',
-        success: function(rental) {
-            alert(`Rental ID ${rental.id} has been successfully removed.`);
+        type: 'POST',
+        url: ctx + '/owner/delete-rental',
+        data: {
+            'rental-id': rentalId
+        },
+        success: function(returnedId) {
+            alert(`Rental ID ${returnedId} has been successfully removed.`);
             $('#rental-table tbody tr').each(function(i, tr) {
                 let id = $(tr).find('button').first().data('rental-id');
-                if(id == rental.id) {
+                if(id == returnedId) {
                     tr.remove();
                 }
             });

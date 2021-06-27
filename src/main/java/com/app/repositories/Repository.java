@@ -20,7 +20,7 @@ public abstract class Repository<T> {
     }
 
     public T delete(T t) {
-        entityManager.remove(t);
+        entityManager.remove(update(t));
         return t;
     }
 
