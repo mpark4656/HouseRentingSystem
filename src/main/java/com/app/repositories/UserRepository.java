@@ -15,14 +15,6 @@ public class UserRepository extends Repository<User> {
         return entityManager.createQuery("SELECT u FROM users u", User.class).getResultList();
     }
 
-    @Override
-    public User attach(User user) {
-        if(user != null) {
-            return entityManager.find(User.class, user.getId());
-        }
-        return null;
-    }
-
     public User findByUsername(String username) {
         try {
             if(username != null) {

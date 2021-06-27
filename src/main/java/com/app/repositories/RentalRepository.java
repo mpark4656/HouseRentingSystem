@@ -11,14 +11,6 @@ public class RentalRepository extends Repository<Rental> {
     }
 
     @Override
-    public Rental attach(Rental rental) {
-        if(rental != null) {
-            return entityManager.find(Rental.class, rental.getId());
-        }
-        return null;
-    }
-
-    @Override
     public List<Rental> list() {
         return entityManager.createQuery("SELECT r FROM rentals r", Rental.class).getResultList();
     }

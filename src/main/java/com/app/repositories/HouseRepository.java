@@ -10,14 +10,6 @@ public class HouseRepository extends Repository<House> {
     }
 
     @Override
-    public House attach(House house) {
-        if(house != null) {
-            return entityManager.find(House.class, house.getId());
-        }
-        return null;
-    }
-
-    @Override
     public List<House> list() {
         return entityManager.createQuery("SELECT h from houses h", House.class).getResultList();
     }
