@@ -86,7 +86,7 @@
     </div>
 </div>
 <jsp:include page="/templates/scripts.jsp">
-    <jsp:param name="scripts" value="owner/delete-rental.js" />
+    <jsp:param name="scripts" value="owner/view-rental.js,owner/delete-rental.js" />
 </jsp:include>
 </body>
 </html>
