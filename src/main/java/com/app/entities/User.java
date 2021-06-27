@@ -3,6 +3,7 @@ package com.app.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity(name = "users")
@@ -130,15 +131,27 @@ public class User {
 
     @Override
     public int hashCode() {
-        return id;
+        return Objects.hash(id, username, password, roles, firstName, lastName, emailAddress);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof User)) return false;
         if(obj == this) return true;
+        if(obj == null || obj.getClass() != this.getClass()) return false;
 
         User user = (User) obj;
-        return this.id == user.id;
+        return Objects.equals(user.id, id) &&
+                Objects.equals(user.username, username) &&
+                Objects.equals(user.password, password) &&
+                Objects.equals(user.roles, roles) &&
+                Objects.equals(user.firstName, firstName) &&
+                Objects.equals(user.lastName, lastName) &&
+                Objects.equals(user.emailAddress, emailAddress);
+    }
+
+    @Override
+    public String toString() {
+        // TODO Implement this
+        return null;
     }
 }

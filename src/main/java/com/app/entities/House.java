@@ -2,6 +2,7 @@ package com.app.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.util.Objects;
 
 @Entity(name = "houses")
 @Table(name = "houses")
@@ -67,16 +68,24 @@ public class House {
 
     @Override
     public int hashCode() {
-        return this.id;
+        return Objects.hash(id, owner, numOfRooms, locality);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(obj == null) return false;
         if(obj == this) return true;
-        if(!(obj instanceof House)) return false;
+        if(obj == null || obj.getClass() != this.getClass()) return false;
 
-        House houseObj = (House) obj;
-        return houseObj.id == this.id;
+        House house = (House) obj;
+        return Objects.equals(id, house.id) &&
+                Objects.equals(owner, house.owner) &&
+                Objects.equals(numOfRooms, house.numOfRooms) &&
+                Objects.equals(locality, house.locality);
+    }
+
+    @Override
+    public String toString() {
+        // TODO Implement this
+        return null;
     }
 }

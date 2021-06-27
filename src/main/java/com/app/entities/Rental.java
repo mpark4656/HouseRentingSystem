@@ -4,6 +4,7 @@ import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity(name = "rentals")
 @Table(name = "rentals")
@@ -95,5 +96,30 @@ public class Rental {
 
     public void setCustomer(User customer) {
         this.customer = customer;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, dateAdded, rent, description, house, customer);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this) return true;
+        if(obj == null || obj.getClass() != this.getClass()) return false;
+
+        Rental rental = (Rental) obj;
+        return Objects.equals(id, rental.id) &&
+                Objects.equals(dateAdded, rental.dateAdded) &&
+                Objects.equals(rent, rental.rent) &&
+                Objects.equals(description, rental.description) &&
+                Objects.equals(house, rental.house) &&
+                Objects.equals(customer, rental.customer);
+    }
+
+    @Override
+    public String toString() {
+        // TODO Implement this
+        return null;
     }
 }
