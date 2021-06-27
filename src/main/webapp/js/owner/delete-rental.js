@@ -74,7 +74,6 @@ function populateRentalInputs(rental) {
 }
 
 function setModalRentalInputsReadOnly(readonly) {
-    $('rental-modal-owner').prop('disabled', true);
     $('#rental-modal-num-of-rooms').prop('readonly', readonly);
     $('#rental-modal-rent').prop('readonly', readonly);
     $('#rental-modal-locality').prop('readonly', readonly);
