@@ -3,10 +3,6 @@ $('.button-edit-user').on('click', function() {
     showUserModal(username, 'edit');
 });
 
-$('.button-resetpw-user').on('click', function() {
-    let username = $(this).data('username');
-});
-
 $('#user-modal-form').on('submit', function(e) {
     // Do not submit and cause any redirection
     e.preventDefault();
